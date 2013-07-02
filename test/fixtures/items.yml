@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  seller_id: 1
+  current_price: 9.99
+  original_price: 9.99
+  brand: MyString
+  size: MyString
+  item_condition: MyString
+  delivery_type: MyString
+  additional_info: MyText
+
+two:
+  seller_id: 1
+  current_price: 9.99
+  original_price: 9.99
+  brand: MyString
+  size: MyString
+  item_condition: MyString
+  delivery_type: MyString
+  additional_info: MyText

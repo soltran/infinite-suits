@@ -40,5 +40,14 @@ InfiniteShirts::Application.configure do
   
   config.action_mailer.delivery_method = :letter_opener
   
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['infinitedev'],
+      :access_key_id => ENV["AKIAJ2MDZRTJGRXQTKMA"],
+      :secret_access_key => ENV["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"]
+    }
+  }
+  
   
 end

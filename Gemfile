@@ -32,6 +32,14 @@ gem 'devise'
 
 gem "letter_opener", :group => :development
 
+gem 'paperclip'
+
+gem 'aws-sdk'
+
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
+gem "therubyracer"
+gem "less-rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -19,6 +19,15 @@ InfiniteShirts::Application.configure do
 
   # Generate digests for assets URLs
   config.assets.digest = true
+  
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => infiniteprod,
+      :access_key_id => AKIAJ2MDZRTJGRXQTKMA,
+      :secret_access_key => W7V12TNe62Fp+K+GaOSEkvLjJs3Dp3VsrAzr1XmR
+    }
+  }
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH

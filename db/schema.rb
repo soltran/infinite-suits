@@ -11,7 +11,44 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130701220803) do
+ActiveRecord::Schema.define(:version => 20130702174602) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_category_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "items", :force => true do |t|
+    t.integer  "seller_id"
+    t.decimal  "current_price"
+    t.decimal  "original_price"
+    t.string   "brand"
+    t.string   "size"
+    t.string   "item_condition"
+    t.string   "delivery_type"
+    t.text     "additional_info"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.integer  "category_id"
+  end
+
+  add_index "items", ["category_id"], :name => "index_items_on_category_id"
+  add_index "items", ["current_price"], :name => "index_items_on_current_price"
+  add_index "items", ["item_condition"], :name => "index_items_on_item_condition"
+  add_index "items", ["seller_id"], :name => "index_items_on_seller_id"
+  add_index "items", ["size"], :name => "index_items_on_size"
+
+  create_table "photos", :force => true do |t|
+    t.integer  "item_id"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "item_photo_file_name"
+    t.string   "item_photo_content_type"
+    t.integer  "item_photo_file_size"
+    t.datetime "item_photo_updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
