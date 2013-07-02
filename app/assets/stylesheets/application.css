@@ -11,3 +11,12 @@
  *= require_self
  *= require_tree .
  */
+
+.category {
+	
+	float: left;
+	width: 20%;
+	height: 20%;
+	
+	
+}

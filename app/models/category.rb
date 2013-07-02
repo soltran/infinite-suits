@@ -1,3 +1,6 @@
 class Category < ActiveRecord::Base
-  attr_accessible :name, :parent_category_id
+  attr_accessible :name, :parent_category_id, :image_url
+  
+  has_many :items
+  
 end

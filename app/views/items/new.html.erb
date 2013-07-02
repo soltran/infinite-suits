@@ -1,0 +1,13 @@
+<h1> List your item </h1>
+
+<ul>
+	<br>
+<% @categories.each do |category| %>
+<li class='category'> 
+	<img src="<%= category.image_url %>">
+	<br>
+	<%= category.name %> 
+</li>
+
+<% end %>
+</ul>
