@@ -24,12 +24,14 @@
                <li><%= link_to "Browse Products" %></li>
                <li><%= link_to "List your Item", new_item_url %></li>
                <li><%= link_to "Shopping Cart" %></li>
-				<%if user_signed_in?%>
-				<li><%=link_to current_user.email %></li>
-				<li><%= button_to "log out", destroy_user_session_url, :method => :delete %></li>
+				<% if user_signed_in? %>
+				  <li><%= drop_down current_user.email do %>
+				  		<%= menu_item "Log out", destroy_user_session_url, :method => :delete %>
+				  </li>
+				  <% end%>
 				<% else %>
 				<li><%= link_to "Log In", root_url %></li>
-				<%end%>
+				<% end %>
 
              </ul>
            </div>

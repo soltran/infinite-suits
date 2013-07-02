@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   
   def new
     @categories = Category.all
+    # @item = current_user.items.build
     
   end
   

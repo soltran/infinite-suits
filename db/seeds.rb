@@ -15,7 +15,9 @@ dress = Category.create([
   { name: 'Outerwear', image_url: "http://99dresses.com/static/yj2GNA3Diryl9i3vLt1qOv7xaDndBtPBjvwJjmdzMYQ.png"},
   { name: 'Jeans', image_url: "http://99dresses.com/static/znMrQoWvVY1dirRP3ilzxcbMXpzmG4Epe5nCCd1T9lH.png"},
   { name: 'Pants', image_url: "http://99dresses.com/static/59z5iMxQ5kvFfekiAbhZwEqBV6mh87FOrEHeRkBjyWC.png"},
+
+  ])
+  
   # { name: 'Jumpsuits', image_url: "http://99dresses.com/static/6bum7XY4zig5mCGruIqq2TQrZApsn8h62ecQ2juijWl.png"},
   # { name: 'Shoes', image_url: "http://99dresses.com/static/6bum7XY4zig5mCGruIqq2TQrZApsn8h62ecQ2juijWl.png"},
   # { name: 'Bags', image_url: "http://99dresses.com/static/6bum7XY4zig5mCGruIqq2TQrZApsn8h62ecQ2juijWl.png"}
-  ])
