@@ -23,9 +23,10 @@ InfiniteShirts::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => infiniteprod,
-      :access_key_id => AKIAJ2MDZRTJGRXQTKMA,
-      :secret_access_key => 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
+      :bucket => ENV["infiniteprod"],
+      :access_key_id => ENV["AKIAJ2MDZRTJGRXQTKMA"],
+      :secret_access_key => ENV["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"]
+
     }
   }
 
