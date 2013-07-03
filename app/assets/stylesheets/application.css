@@ -17,6 +17,12 @@
 	float: left;
 	width: 20%;
 	height: 20%;
+	margin: 10px;
+
 	
+}
+
+.outlined {
+	border:1px solid green;
 	
 }

@@ -1,10 +1,10 @@
 <h1> List your item </h1>
 <br>
 
-<ul class> <h2>1. Select a category</h2><br>
+<ul> <h2>1. Select a category</h2><br>
 	<br>
 <% @categories.each do |category| %>
-<li class='category' id=''> 
+<li class='category' id='<%=category.name %>'> 
 	<img src="<%= category.image_url %>" style="position: relative top: 50%; height: auto; width: 100px;">
 	<br>
 	<%= category.name %> 
@@ -12,30 +12,20 @@
 
 <% end %>
 </ul>
+
+<% 13.times do |i| %>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<% end %>
 
 <ul><br><h2>2. Select a picture</h2>
-	
-	
-
-
-
-
 	<div class="field">
-
+		<%= form_for @item, url: {action: "create"} do |f| %>
+		  <%= f.text_field :brand %>
+		  <%= fields_for @photo do |p| %>
+		     <%= p.file_field :item_photo %>
+		   <% end %>
+		<% end %>
+		
 	</div>
-	
 </ul>
 
