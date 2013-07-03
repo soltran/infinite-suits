@@ -1,7 +1,5 @@
 <div class="paperclipPhotos">
 	
-	<%= f.fields_for :photos do |photo| %>
-		<%= photo.file_field :image %>
-	<% end %>
+	<%= file_field_tag 'item[photos_attributes][][image]', :multiple =>  true%>
 	
 </div>

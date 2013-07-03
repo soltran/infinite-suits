@@ -40,9 +40,10 @@ GEM
       multi_json (~> 1.0)
     addressable (2.3.5)
     arel (3.0.2)
-    aws-sdk (1.11.3)
+    aws-sdk (1.5.8)
+      httparty (~> 0.7)
       json (~> 1.4)
-      nokogiri (< 1.6.0)
+      nokogiri (>= 1.4.4)
       uuidtools (~> 2.1)
     backbone-on-rails (1.0.0.0)
       eco
@@ -85,6 +86,9 @@ GEM
     execjs (1.4.0)
       multi_json (~> 1.0)
     hike (1.2.3)
+    httparty (0.11.0)
+      multi_json (~> 1.0)
+      multi_xml (>= 0.5.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.1)
@@ -105,8 +109,11 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.23)
+    mini_portile (0.5.0)
     multi_json (1.7.7)
-    nokogiri (1.5.10)
+    multi_xml (0.5.4)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -172,7 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk
+  aws-sdk (~> 1.5.7)
   backbone-on-rails
   better_errors
   binding_of_caller

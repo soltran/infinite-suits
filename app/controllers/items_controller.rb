@@ -2,7 +2,10 @@ class ItemsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
+    @items = Item.all
+    @photo = Photo.new
     
+    render :json => @items.to_json(:include => :photos)
   end
   
   def new

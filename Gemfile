@@ -34,7 +34,7 @@ gem "letter_opener", :group => :development
 
 gem 'paperclip'
 
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 1.5.7'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 

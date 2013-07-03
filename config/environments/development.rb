@@ -43,11 +43,13 @@ InfiniteShirts::Application.configure do
   config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {
-      :bucket => ENV['infinitedev'],
+      :bucket => ENV['INFINITEDEV'],
       :access_key_id => ENV["AKIAJ2MDZRTJGRXQTKMA"],
       :secret_access_key => ENV["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"]
-    }
+    },
+    :s3_hostname => 's3-us-west-2.amazon.com'
   }
   
+  Paperclip.options[:command_path] = "/opt/local/bin/"
   
 end
