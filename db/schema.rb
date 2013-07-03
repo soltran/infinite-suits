@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702205757) do
+ActiveRecord::Schema.define(:version => 20130703081423) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -42,13 +42,14 @@ ActiveRecord::Schema.define(:version => 20130702205757) do
   add_index "items", ["size"], :name => "index_items_on_size"
 
   create_table "photos", :force => true do |t|
-    t.integer  "item_id"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
-    t.string   "item_photo_file_name"
-    t.string   "item_photo_content_type"
-    t.integer  "item_photo_file_size"
-    t.datetime "item_photo_updated_at"
+    t.integer  "imageable_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "imageable_type"
   end
 
   create_table "users", :force => true do |t|

@@ -11,4 +11,6 @@ class User < ActiveRecord::Base
   
   has_many :items, class_name: 'Item', foreign_key: :seller_id
   
+  has_one :profile_pic, class_name: 'Photo', as: :imageable
+  
 end

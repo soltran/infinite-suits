@@ -1,31 +1,72 @@
 <h1> List your item </h1>
 <br>
 
-<ul> <h2>1. Select a category</h2><br>
-	<br>
-<% @categories.each do |category| %>
-<li class='category' id='<%=category.name %>'> 
-	<img src="<%= category.image_url %>" style="position: relative top: 50%; height: auto; width: 100px;">
-	<br>
-	<%= category.name %> 
-</li>
+<%= form_for @item, url: {action: "create"}, :html => {:multipart => true} do |f| %>
 
-<% end %>
-</ul>
+	<!--  f.error_messages :header_message  =>  "Listing was not published.", :header_tag =>  :h5 -->
 
-<% 13.times do |i| %>
-<br>
-<% end %>
 
-<ul><br><h2>2. Select a picture</h2>
-	<div class="field">
-		<%= form_for @item, url: {action: "create"} do |f| %>
-		  <%= f.text_field :brand %>
-		  <%= fields_for @photo do |p| %>
-		     <%= p.file_field :item_photo %>
-		   <% end %>
+	<ul> 
+		<h2>1. Select a category</h2>
+		<br><br>
+	
+		<% @categories.each do |category| %>
+
+			<li class='category' id='<%= category.name %>' cat-id='<%= category.id %>'> 
+				<img src="<%= category.image_url %>" style="position: relative top: 50%; height: auto; width: 100px;">
+				<br>
+				<%= category.name %> 
+			</li>
+
 		<% end %>
-		
-	</div>
-</ul>
+	</ul>
 
+	<% 14.times do |i| %>
+		<br>
+	<% end %>
+
+	<ul>
+		<h2>2. Select a picture</h2>
+		<br>
+		<b>Must upload at least one picture</b>
+		<br>
+		<br>
+		<div class="field">
+			<%= render :partial => 'form', :locals => {:f => f} %>		
+		</div>
+	</ul>
+
+	<% 3.times do |i| %>
+		<br>
+	<% end %>
+
+	<ul>
+		<h2>3. Fill in the details</h2>
+		<%= f.label :brand %>
+		<%= f.text_field :brand %>
+		
+		<%= f.label :size %>
+		<%= f.text_field :size %>
+		
+		<%= f.label :item_condition %> <!-- convert this to radio later -->
+		<%= f.text_field :item_condition %>
+		
+		<%= f.label :original_price %>
+		<%= f.text_field :original_price, :class => 'price', :value => (number_with_precision(f.object.current_price, :precision => 2) || 0) %>
+		
+		<%= f.label :current_price %>
+		<%= f.text_field :current_price, :class => 'price', :value => (number_with_precision(f.object.current_price, :precision => 2) || 0) %>
+		
+		<%= f.label :delivery_type %> <!-- convert this to radio later -->
+		<%= f.text_field :delivery_type %>
+		
+		<input type="hidden" id="category-id" value="" name="item[category_id]">
+		
+	</ul>
+	<div>
+		<ul><%= f.submit 'Create Listing' %><span>  <%= link_to 'cancel', items_path %></span></ul>
+	</div>
+	
+<% end %>
+
+<%= link_to 'Back', items_path %>

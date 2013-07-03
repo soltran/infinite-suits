@@ -6,9 +6,10 @@ window.InfiniteShirts = {
   initialize: function() {
 	  $('.category').click(function(event) {
 		  $('.category').removeClass('outlined');
-		  console.log(event.target);
-		  var hi = event.target;
 		 $(this).toggleClass('outlined');
+		 var cat = $(this).attr('cat-id');
+		 $('#category-id').attr('value', cat);
+		 
 	  });
     
   }

@@ -1,11 +1,11 @@
 class Photo < ActiveRecord::Base
-  attr_accessible :item_id, :item_photo, :primary_photo
+  attr_accessible :imageable_id, :image, :imageable_type, :primary_photo
   
-  has_attached_file :item_photo, :styles => {
+  has_attached_file :image, :styles => {
       :big => "600x600>",
       :small => "50x50#"
     }
     
-  belongs_to :item
+  belongs_to :imageable, polymorphic: true
   
 end
