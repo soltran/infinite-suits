@@ -14,12 +14,12 @@
 
 .category {
 	
-	float: left;
+	display: inline-block;
 	width: 20%;
 	height: 20%;
 	margin: 10px;
+	box-sizing: border-box;
 
-	
 }
 
 .outlined {

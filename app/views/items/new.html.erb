@@ -4,12 +4,9 @@
 <%= form_for @item, url: {action: "create"}, :html => {:multipart => true} do |f| %>
 
 	<!--  f.error_messages :header_message  =>  "Listing was not published.", :header_tag =>  :h5 -->
-
-
 	<ul> 
 		<h2>1. Select a category</h2>
-		<br><br>
-	
+
 		<% @categories.each do |category| %>
 
 			<li class='category' id='<%= category.name %>' cat-id='<%= category.id %>'> 
@@ -21,7 +18,7 @@
 		<% end %>
 	</ul>
 
-	<% 14.times do |i| %>
+	<% 2.times do |i| %>
 		<br>
 	<% end %>
 
@@ -57,6 +54,10 @@
 		<%= f.label :current_price %>
 		<%= f.text_field :current_price, :class => 'price', :value => (number_with_precision(f.object.current_price, :precision => 2) || 0) %>
 		
+		<br>
+		<br>
+		<h2>4. Select Delivery Type</h2>
+		
 		<%= f.label :delivery_type %> <!-- convert this to radio later -->
 		<%= f.text_field :delivery_type %>
 		
@@ -70,3 +71,9 @@
 <% end %>
 
 <%= link_to 'Back', items_path %>
+
+<br>
+
+<% @photos.each do |photo| %>
+<%= image_tag photo.image.url(:big) %>
+<% end %>

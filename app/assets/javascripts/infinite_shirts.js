@@ -4,21 +4,20 @@ window.InfiniteShirts = {
   Views: {},
   Routers: {},
   initialize: function() {
-	  // var that = this;
-	  // this.items = new InfiniteShirts.Collections.Items();
-	  // this.$rootEl = $("#content");
-	  // this.items.fetch({
-	  // 		  success: function(){
-	  // 			  console.log("hi");
-	  // 			  new InfiniteShirts.Routers.Items(that.$rootEl, that.gists);
-	  // 			  Backbone.history.start();
-	  // 		  },
-	  // 		  
-	  // 		  error: function(){
-	  // 			  console.log("error");
-	  // 		  }
-	  // 		
-	  // })
+	  var that = this;
+	  this.items = new InfiniteShirts.Collections.Items();
+	  this.$rootEl = $("#content");
+	  this.items.fetch({
+	  		  success: function(){
+	  			  new InfiniteShirts.Routers.Items(that.$rootEl, that.items);
+	  			  Backbone.history.start();
+	  		  },
+	  		  
+	  		  error: function(){
+	  			  console.log("error");
+	  		  }
+	  		
+	  })
 	  
 	  $('.category').click(function(event) {
 		  $('.category').removeClass('outlined');

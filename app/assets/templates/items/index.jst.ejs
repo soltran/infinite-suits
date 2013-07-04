@@ -1,0 +1,12 @@
+<h1>Welcome to the Infinite Closet</h1>
+
+<ul>
+	<% items.each(function(item){ %>
+		<li>
+			<a id="item-link" data-id="<%= item.id %>" href='#'>
+				<%= item.escape("brand") %>
+				<%= item.escape("current_price") %>
+			</a>
+		</li>
+	<% }); %>
+</ul>
