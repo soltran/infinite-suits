@@ -50,6 +50,6 @@ InfiniteShirts::Application.configure do
     :s3_host_name => 's3-us-west-1.amazonaws.com'
   }
   
-  Paperclip.options[:command_path] = "/opt/local/bin/"
+  # Paperclip.options[:command_path] = "/opt/local/bin/"
   
 end
