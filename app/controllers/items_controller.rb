@@ -5,7 +5,9 @@ class ItemsController < ApplicationController
     @items = Item.all
     @photo = Photo.new
     
-    render :json => @items.to_json(:include => :photos)
+    render :json => @items
+    
+    # .as_json(:include => :photos)
   end
   
   def new

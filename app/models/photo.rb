@@ -8,4 +8,9 @@ class Photo < ActiveRecord::Base
     
   belongs_to :imageable, polymorphic: true
   
+  def image_url
+    self.image.url
+  end
+  
+  
 end

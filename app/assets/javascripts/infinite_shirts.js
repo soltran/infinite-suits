@@ -16,7 +16,6 @@ window.InfiniteShirts = {
 	  		  error: function(){
 	  			  console.log("error");
 	  		  }
-	  		
 	  })
 	  
 	  $('.category').click(function(event) {

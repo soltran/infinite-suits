@@ -11,4 +11,19 @@ class Item < ActiveRecord::Base
   
   validates_presence_of :brand, :size, :item_condition, :original_price, :current_price
   
+  def as_json(options = {})
+    # super(options.merge(:methods => [:image_url]))
+    
+    result = super({
+      include: { photos: {
+          methods: :image_url
+        }
+      }
+      
+    }).merge(options)
+    
+    result 
+  end
+  
+  
 end

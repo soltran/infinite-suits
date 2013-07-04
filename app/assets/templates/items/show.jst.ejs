@@ -2,6 +2,6 @@ This is an item
 <%= item.escape('brand') %>
 
 <% photos.each(function(photo){ %>
-	//insert image tag
+	<img src="<%= photo.escape('image_url') %>" alt="photo-image" width="300" height="300">
 	
 <% }); %>
