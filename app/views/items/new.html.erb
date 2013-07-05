@@ -39,37 +39,67 @@
 
 	<ul>
 		<h2>3. Fill in the details</h2>
-		<%= f.label :brand %>
-		<%= f.text_field :brand %>
-		
-		<%= f.label :size %>
-		<%= f.text_field :size %>
-		
-		<%= f.label :item_condition %> <!-- convert this to radio later -->
-		<%= f.text_field :item_condition %>
-		
-		<%= f.label :original_price %>
-		<%= f.text_field :original_price, :class => 'price', :value => (number_with_precision(f.object.current_price, :precision => 2) || 0) %>
-		
-		<%= f.label :current_price %>
-		<%= f.text_field :current_price, :class => 'price', :value => (number_with_precision(f.object.current_price, :precision => 2) || 0) %>
-		
+		<div class='all-forms'>
+			<div class='form-field'>
+				<%= f.label :brand %>
+				<%= f.text_field :brand %>
+			</div>
+			<div class='form-field'>
+			<%= f.label :size %>
+			<%= f.text_field :size %>
+			</div>
+			<div class='form-field'>
+			<%= f.label :item_condition %> <!-- convert this to radio later -->
+			<%= f.text_field :item_condition %>
+			</div>
+			<div class='form-field'>
+			<%= f.label :original_price %>
+			<span class="input-prepend">
+				<span class="add-on">$</span><%= f.number_field :original_price, :class => 'price btn', :value => (number_to_currency(f.object.original_price, :unit => "$", precision: 2)) %>
+			</span>
+			</div>
+			<div class='form-field'>
+			<%= f.label :current_price %>
+			<span class="input-prepend">
+				<span class="add-on">$</span><%= f.number_field :current_price, :class => 'price btn', :value => (number_to_currency(f.object.current_price, :unit => "$")) %>
+			</span>
+			</div>
+			<br>
+			<div class='form-field'>
+			<%= f.label :additional_info, "Additional Info (optional)" %>
+			<%= f.text_area :additional_info, size: "24x6" %>
+			</div>
+		</div>
 		<br>
 		<br>
 		<h2>4. Select Delivery Type</h2>
-		
-		<%= f.label :delivery_type %> <!-- convert this to radio later -->
-		<%= f.text_field :delivery_type %>
-		
+		<br>
+		<div class="shipping-btn-group btn-group btn-group-horizontal">
+			<div data-delivery-type="shipping" class="btn delivery-type-btn btn-primary">
+				Shipping</div>
+			<div data-delivery-type="pickup" class="btn delivery-type-btn">
+				Pickup</div>
+		</div>
+		<br>
+		<br>
+		<div class='delivery-info'>
+			<div >
+				
+			</div>
+		</div>
+		<div class='delivery-info hidden'></div>
+		<input type="hidden" id="delivery_type" value="shipping" name="item[delivery_type]"> 
 		<input type="hidden" id="category-id" value="" name="item[category_id]">
 		
 	</ul>
 	<div>
-		<ul><%= f.submit 'Create Listing' %><span>  <%= link_to 'cancel', root_url %></span></ul>
+		<ul><%= f.submit 'Create Listing', :class => 'btn btn-inverse' %><span>  <%= link_to 'cancel', root_url, :class => 'btn btn-danger' %></span></ul>
 	</div>
+
 	
 <% end %>
-
-<%= link_to 'Back', root_url %>
+<ul>
+	<%= link_to 'Back', root_url, :class => 'btn btn-link' %>
+</ul>
 
 <br>

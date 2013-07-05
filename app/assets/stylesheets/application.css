@@ -36,3 +36,17 @@
 	box-sizing: border-box;
 	
 }
+
+.form-field {
+	display: inline-block;
+	width: 30%;
+	height: 20%;
+	margin: 10px;
+	box-sizing: border-box;
+	
+}
+
+.all-forms {
+	width: 60%;
+	
+}

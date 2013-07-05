@@ -25,6 +25,12 @@ window.InfiniteShirts = {
 		 $('#category-id').attr('value', cat);
 		 
 	  });
+	   $('.delivery-type-btn').click(function(event) {
+		   $('.delivery-type-btn').removeClass('btn-primary');
+		   $(this).toggleClass('btn-primary');
+		   var type = $(this).attr('data-delivery-type');
+		   $('#delivery_type').attr('value', type);
+	   });
     
   }
 };
