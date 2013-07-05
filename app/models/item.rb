@@ -7,25 +7,31 @@ class Item < ActiveRecord::Base
   
   has_many :photos, as: :imageable, :dependent => :destroy
   
-  has_one :primary_photo, class_name: 'Photo', as: :imageable, :dependent =>  :destroy
-  
   accepts_nested_attributes_for :photos, allow_destroy: true
   
   validates_presence_of :brand, :size, :item_condition, :original_price, :current_price
   
   def as_json(options = {})
-    # super(options.merge(:methods => [:image_url]))
     
     result = super({
       include: { photos: {
           methods: :image_url
-        }
-      }
+          }, primary_photo: { 
+            methods: :image_url }
+      },
+      methods: :primary_photo
       
     }).merge(options)
     
     result 
   end
   
+  def primary_photo
+    self.photos.each do |photo|
+      if photo.primary_photo == true
+        return photo
+      end
+    end
+  end
   
 end

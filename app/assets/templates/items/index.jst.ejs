@@ -4,7 +4,7 @@
 	<% items.each(function(item){ %>
 		<li>
 			<a id="item-link" data-id="<%= item.id %>" href='#'>
-				<%= item.escape("brand") %>
+				<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="150" height="150">
 				<%= item.escape("current_price") %>
 			</a>
 		</li>

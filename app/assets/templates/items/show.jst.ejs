@@ -2,6 +2,8 @@ This is an item
 <%= item.escape('brand') %>
 
 <% photos.each(function(photo){ %>
-	<img src="<%= photo.escape('image_url') %>" alt="photo-image" width="300" height="300">
-	
+	<% if(photo.escape('primary_photo') == false){ %>
+		<img class="extra-photo" src="<%= photo.escape('image_url') %>" alt="photo-image" width="150" height="150">
+	<% } %>
+
 <% }); %>

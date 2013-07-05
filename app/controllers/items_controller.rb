@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
     @categories = Category.all
     @item = current_user.items.build
     3.times { @item.photos.build }
+    
     @photos = Photo.all
   end
   

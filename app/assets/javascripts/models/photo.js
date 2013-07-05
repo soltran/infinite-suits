@@ -1,3 +1,3 @@
-InfiniteShirts.Models.Photo = Backbone.Model.extend({
+InfiniteShirts.Models.Photo = Backbone.RelationalModel.extend({
 
 });

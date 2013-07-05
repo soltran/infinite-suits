@@ -25,7 +25,7 @@
 	<ul>
 		<h2>2. Select a picture</h2>
 		<br>
-		<b>Must upload at least one picture</b>
+		<b>Must upload at least one primary picture</b>
 		<br>
 		<br>
 		<div class="field">
@@ -65,11 +65,11 @@
 		
 	</ul>
 	<div>
-		<ul><%= f.submit 'Create Listing' %><span>  <%= link_to 'cancel', items_path %></span></ul>
+		<ul><%= f.submit 'Create Listing' %><span>  <%= link_to 'cancel', root_url %></span></ul>
 	</div>
 	
 <% end %>
 
-<%= link_to 'Back', items_path %>
+<%= link_to 'Back', root_url %>
 
 <br>

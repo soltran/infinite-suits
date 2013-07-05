@@ -15,6 +15,7 @@
 //= require twitter/bootstrap
 //= require underscore
 //= require backbone
+//= require backbone-relational
 //= require infinite_shirts
 //= require_tree ../templates
 //= require_tree ./models

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130704172330) do
+ActiveRecord::Schema.define(:version => 20130704223513) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20130704172330) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "imageable_type"
+    t.boolean  "primary_photo"
   end
 
   create_table "users", :force => true do |t|

@@ -1,5 +1,14 @@
 <div class="paperclipPhotos">
 	
-	<%= file_field_tag 'item[photos_attributes][][image]', :multiple =>  true%>
+	<%= file_field_tag 'item[photos_attributes][0][image]' %>
+	<input type="hidden" name="item[photos_attributes][0][primary_photo]" value="true">
+	<br>
+	<br>
+	<b>Additional images:</br>
+	<br>
+	<br>
+	<%= file_field_tag 'item[photos_attributes][1][image]' %>
+	<%= file_field_tag 'item[photos_attributes][2][image]' %>
+	<%= file_field_tag 'item[photos_attributes][3][image]' %>
 	
 </div>
