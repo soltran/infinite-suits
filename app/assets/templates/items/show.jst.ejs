@@ -1,9 +1,14 @@
-This is an item
-<%= item.escape('brand') %>
+<h2><%= item.escape('brand') + item.escape('material') %></h2>
 
 <% photos.each(function(photo){ %>
 	<% if(photo.escape('primary_photo') == false){ %>
-		<img class="extra-photo" src="<%= photo.escape('image_url') %>" alt="photo-image" width="150" height="150">
-	<% } %>
-
-<% }); %>
+		<img class="extra-photo" src="<%= photo.escape('image_url') %>" alt="photo-image" width="75" height="75">
+	<% } else { %>
+		<img class="primary-photo" src="<%= photo.escape('image_url') %>" alt="photo-image" width="300" height="300">
+<% }}); %>
+Price: $<%= item.escape('current_price')%><br>
+Original Price: $<%= item.escape('original_price')%><br>
+Brand: <%= item.escape('brand')%><br>
+Size: <%= item.escape('size')%><br>
+Item Condition: <%= item.escape('item_condition')%><br>
+Delivery type: <%= item.escape('delivery_type')%><br>

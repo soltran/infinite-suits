@@ -9,6 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require jquery.ui.button
  *= require_tree .
  */
 
@@ -24,5 +25,14 @@
 
 .outlined {
 	border:1px solid green;
+	
+}
+
+.index-item {
+	display: inline-block;
+	width: 20%;
+	height: 20%;
+	margin: 10px;
+	box-sizing: border-box;
 	
 }

@@ -1,4 +1,4 @@
-InfiniteShirts.Views.ItemShow = Backbone.View.extend({
+InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 
   template: JST['items/show'],
 

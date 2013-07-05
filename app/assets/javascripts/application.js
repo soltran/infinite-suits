@@ -16,6 +16,9 @@
 //= require underscore
 //= require backbone
 //= require backbone-relational
+//= require backbone-modal-dialog
+//= require backbone-validation
+//= require jquery.ui.button
 //= require infinite_shirts
 //= require_tree ../templates
 //= require_tree ./models
