@@ -3,7 +3,7 @@ window.InfiniteShirts = {
   Collections: {},
   Views: {},
   Routers: {},
-  initialize: function() {
+  initializeIndex: function() {
 	  var that = this;
 	  this.items = new InfiniteShirts.Collections.Items();
 	  this.$rootEl = $("#content");
@@ -18,23 +18,14 @@ window.InfiniteShirts = {
 	  		  }
 	  })
 	  
-	  $('.category').click(function(event) {
-		  $('.category').removeClass('outlined');
-		 $(this).toggleClass('outlined');
-		 var cat = $(this).attr('cat-id');
-		 $('#category-id').attr('value', cat);
-		 
-	  });
-	   $('.delivery-type-btn').click(function(event) {
-		   $('.delivery-type-btn').removeClass('btn-primary');
-		   $(this).toggleClass('btn-primary');
-		   var type = $(this).attr('data-delivery-type');
-		   $('#delivery_type').attr('value', type);
-	   });
     
+  },
+  InitializeNewListing: function(){
+	  var that = this;
+	  this.$rootEl = $("content");
+	  new InfiniteShirts.Routers.Listings(that.$rootEl);
+	  Backbone.history.start();
+	
   }
 };
 
-$(document).ready(function(){
-  InfiniteShirts.initialize();
-});

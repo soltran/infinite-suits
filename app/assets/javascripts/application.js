@@ -19,6 +19,7 @@
 //= require backbone-modal-dialog
 //= require backbone-validation
 //= require jquery.ui.button
+//= require jquery-fileupload/basic
 //= require infinite_shirts
 //= require_tree ../templates
 //= require_tree ./models

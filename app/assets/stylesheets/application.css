@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require jquery.ui.button
+ *= require jquery.fileupload-ui
  *= require_tree .
  */
 
@@ -48,5 +49,12 @@
 
 .all-forms {
 	width: 60%;
+	
+}
+
+.delivery-info h1 {
+	text-align:center;
+	color: purple;
+	font-size: 1.5em;
 	
 }
