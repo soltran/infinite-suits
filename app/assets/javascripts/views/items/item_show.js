@@ -18,10 +18,12 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 	  return this;
   },
   
-  switchPhoto: function(){
-	  $('.photo-show').toggleClass('.primary-photo');
-	  $('.photo-show').toggleClass('.extra-photo');
-	
+  switchPhoto: function(event){
+	  console.log($(event.target));
+	  $('.primary-photo').addClass('extra-photo');
+	  $('.primary-photo').removeClass('primary-photo');
+	  $(event.target).addClass('primary-photo');
+	  $(event.target).removeClass('extra-photo')
 	
   }
   

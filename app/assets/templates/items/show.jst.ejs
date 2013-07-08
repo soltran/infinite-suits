@@ -5,15 +5,16 @@
 	<% if(photo.escape('primary_photo') == false){ %>
 		<a href="#"><img class="photo-show extra-photo" src="<%= photo.escape('image_url') %>" alt="photo-image"></a>
 	<% } else { %>
-		<img class="photo-show primary-photo" src="<%= photo.escape('image_url') %>" alt="photo-image">
+		<a href="#"><img class="photo-show primary-photo" src="<%= photo.escape('image_url') %>" alt="photo-image"></a>
 <% }}); %>
-
-Price: $<%= item.escape('current_price')%><br>
-Original Price: $<%= item.escape('original_price')%><br>
-Brand: <%= item.escape('brand')%><br>
-Size: <%= item.escape('size')%><br>
-Item Condition: <%= item.escape('item_condition')%><br>
-Delivery type: <%= item.escape('delivery_type')%><br>
+<div class='span8'>
+<b>Price:</b> $<%= item.escape('current_price')%><br>
+<b>Original Price:</b> $<%= item.escape('original_price')%><br>
+<b>Brand:</b> <%= item.escape('brand')%><br>
+<b>Size:</b><%= item.escape('size')%><br>
+<b>Item Condition:</b> <%= item.escape('item_condition')%><br>
+<b>Delivery type:</b> <%= item.escape('delivery_type')%><br>
+</div>
 </div>
 <div class="modal-footer">
 <button class="btn modal-close" data-dismiss="modal" aria-hidden="true">Close</button>

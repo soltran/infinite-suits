@@ -4,10 +4,13 @@
 	<% items.each(function(item){ %>
 		<div class='index-item'>
 			<a class="item-link" data-id="<%= item.id %>" href='#'>
-				<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="150" height="150">
+				<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
 				<br>
 				Price: $<%= item.escape('current_price') %>, <%= item.escape('item_condition') %><br>
 				<%= item.escape('brand') %>
+				<div class='footer'>
+					
+				</div>
 			</a>
 		</div>
 	<% }); %>

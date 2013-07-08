@@ -68,13 +68,12 @@
 }
 
 .primary-photo {
-	width: 300px;
-	height: 300px;
+	width: 40%;
+	float: left;
 	
 }
 
 .extra-photo {
-	width: 75px;
-	height: 75px;
+	width: 10%;
 	
 }

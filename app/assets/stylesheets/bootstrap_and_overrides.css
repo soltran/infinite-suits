@@ -65,12 +65,7 @@ input[type="color"],
 
 .btn {
   color: #333333;
-  background-image: -moz-linear-gradient(top, #ffffff, #9f81f7);
-  background-image: -ms-linear-gradient(top, #ffffff, #9f81f7);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#9f81f7));
-  background-image: -webkit-linear-gradient(top, #ffffff, #9f81f7);
-  background-image: -o-linear-gradient(top, #ffffff, #9f81f7);
-  background-image: linear-gradient(top, #ffffff, #9f81f7);
+
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'ffffff, endColorstr='#'9f81f7, GradientType=0);
 }
 
@@ -80,7 +75,6 @@ input[type="color"],
 .btn.disabled,
 .btn[disabled] {
   color: #333333;
-  background-color: #9f81f7;
 }
 
 .btn-primary {

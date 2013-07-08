@@ -17,7 +17,12 @@ class Item < ActiveRecord::Base
       include: { photos: {
           methods: :image_url
           }, primary_photo: { 
-            methods: :image_url }
+            methods: :image_url },
+            seller: {
+              include: { profile_pic: {
+                methods: :image_url }
+              }
+            }
       },
       methods: :primary_photo
       
