@@ -38,12 +38,14 @@ gem 'aws-sdk', '~> 1.5.7'
 
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
+
 gem "therubyracer"
-gem "less-rails"
+# gem "less-rails"
 
 gem 'jquery-ui-rails'
 
 gem 'jquery-fileupload-rails'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

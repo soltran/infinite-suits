@@ -3,13 +3,28 @@ class Photo < ActiveRecord::Base
   
   has_attached_file :image, :styles => {
       :big => "600x600>",
-      :small => "50x50#"
+      :small => "150x150#"
     }
     
   belongs_to :imageable, polymorphic: true
   
   def image_url
     self.image.url
+  end
+  
+  def url
+    self.image.url(:small)
+  end
+
+  
+  def as_json(options = {})
+    
+    result = super({
+      methods: :url
+      
+    }).merge(options)
+    
+    result 
   end
   
   

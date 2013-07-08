@@ -1,0 +1,97 @@
+<div class="container-fluid">
+	<div class="row-fluid">
+		
+		<!-- Form Name -->
+		<h2>Edit your Account</h2>
+		
+		<!-- File Button --> 
+		
+		<div class="control-group">
+			<div id="add_photo_div">
+				<img src="<%= @user.profile_pic.url %>" alt="profile pic">
+			</div>
+			<form id="add_a_photo_form" 
+			      action="/photos"
+			      enctype="multipart/form-data" 
+			      method="POST">
+			  <input name="authenticity_token" 
+			          type="hidden"
+			          value="$('meta[name="csrf-token"]').attr('content')" />
+			  <input type='file' name="photo[image]" id="add_a_file" STYLE="opacity: 0">
+	
+			</form>
+			<a href='#' id="click_to_add_file">Upload Profile Pic</a>
+			
+		  </div>
+		</div>
+		
+		
+		<form method="post" action="<%= account_url %>" class="form-horizontal">
+			<input type="hidden" value="put" name="_method">
+			<input type="hidden" value="form_authenticity_token" name="authenticity_token">
+
+
+
+		<!-- Text input-->
+		<div class="control-group">
+		  <label class="control-label">Email</label>
+		  <div class="controls">
+		    <input id="email" value="<%= @user.email %>" name="user[email]" type="text" >
+			<div id="div_photo_ids"></div>
+			<input type="hidden" id="profile_pic" name="photo[id]" value="">
+			
+		  </div>
+		</div>
+
+		
+
+		<!-- Button -->
+		<div class="control-group">
+		  <label class="control-label"></label>
+		  <div class="controls">
+		    <input type="submit" class="btn btn-primary" value="Make Change">
+		  </div>
+		</div>
+		
+		</form>
+	</div>
+</div>
+
+<style>
+
+h2 {
+	
+	text-align:center;
+}
+</style>
+
+<script>
+	
+    $('#click_to_add_file').click(function(){
+       $('#add_a_file').click();
+     })
+     $(function(){
+       $('input:file').on('change',function(event){
+         console.log($(this.form));
+         var that = this
+         $(this.form).ajaxSubmit({
+           beforeSubmit: function(arr,$form,options){
+             options.dataType = "json"
+           },
+           complete: function(XMLHttpRequest, textStatus){
+             if(textStatus === "success"){
+               photo = XMLHttpRequest.responseJSON
+			   console.log(photo)
+               var photoTemplateFn = JST['uploaded_photo']
+               var photoTemplate = photoTemplateFn({photo: photo})
+               $('#add_photo_div').html(photoTemplate)
+			   console.log(photo.id)
+               $("#profile_pic").attr('value', photo.id);
+             }
+           }
+         })
+       })
+   })
+   </script>
+</script>
+	

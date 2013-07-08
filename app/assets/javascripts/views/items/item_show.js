@@ -1,7 +1,11 @@
 InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 
   template: JST['items/show'],
-
+  
+  events: {
+	  "click .extra-photo": "switchPhoto"
+	
+  },
   
   render: function(){
 	  var photos = this.model.get('photos');
@@ -12,6 +16,13 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 	  });
 	  this.$el.html(renderedTemplate);
 	  return this;
+  },
+  
+  switchPhoto: function(){
+	  $('.photo-show').toggleClass('.primary-photo');
+	  $('.photo-show').toggleClass('.extra-photo');
+	
+	
   }
   
   

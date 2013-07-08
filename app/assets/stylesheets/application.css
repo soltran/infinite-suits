@@ -9,6 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap.min
+ *= require bootstrap_and_overrides
  *= require jquery.ui.button
  *= require jquery.fileupload-ui
  *= require_tree .
@@ -56,5 +58,23 @@
 	text-align:center;
 	color: purple;
 	font-size: 1.5em;
+	
+}
+.navBar {background: #9F81F7; }
+
+.hidden { 
+	visibility: hidden;
+	display: none;
+}
+
+.primary-photo {
+	width: 300px;
+	height: 300px;
+	
+}
+
+.extra-photo {
+	width: 75px;
+	height: 75px;
 	
 }

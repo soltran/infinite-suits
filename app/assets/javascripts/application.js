@@ -12,14 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
+//= require jquery.form
 //= require underscore
+//= require bootstrap.min
 //= require backbone
 //= require backbone-relational
 //= require backbone-modal-dialog
-//= require backbone-validation
 //= require jquery.ui.button
-//= require jquery-fileupload/basic
+// require jquery-fileupload/basic
+
 //= require infinite_shirts
 //= require_tree ../templates
 //= require_tree ./models

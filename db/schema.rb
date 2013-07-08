@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130705180725) do
+ActiveRecord::Schema.define(:version => 20130708050925) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -37,9 +37,7 @@ ActiveRecord::Schema.define(:version => 20130705180725) do
 
   add_index "items", ["category_id"], :name => "index_items_on_category_id"
   add_index "items", ["current_price"], :name => "index_items_on_current_price"
-  add_index "items", ["item_condition"], :name => "index_items_on_item_condition"
   add_index "items", ["seller_id"], :name => "index_items_on_seller_id"
-  add_index "items", ["size"], :name => "index_items_on_size"
 
   create_table "photos", :force => true do |t|
     t.integer  "imageable_id"

@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     
   end
   
+  
   def destroy
     current_user.session_token = nil
     current_user.save!

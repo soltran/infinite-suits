@@ -13,9 +13,10 @@ class ItemsController < ApplicationController
   def new
     @categories = Category.all
     @item = current_user.items.build
-    3.times { @item.photos.build }
-    
-    @photos = Photo.all
+    @prime_photo = Photo.new
+    @photo1 = Photo.new
+    @photo2 = Photo.new
+    @photo3 = Photo.new
   end
   
   def create
