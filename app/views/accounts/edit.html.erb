@@ -8,7 +8,9 @@
 		
 		<div class="control-group">
 			<div id="add_photo_div">
-				<img src="<%= @user.profile_pic.url %>" alt="profile pic">
+				<% unless @user.profile_pic.nil? %>
+					<img src="<%= @user.profile_pic.url %>" alt="profile pic">
+				<% end %>
 			</div>
 			<form id="add_a_photo_form" 
 			      action="/photos"
