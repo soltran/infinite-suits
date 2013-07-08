@@ -4,7 +4,7 @@ InfiniteShirts.Models.Item = Backbone.RelationalModel.extend({
 		key: 'photos',
 		relatedModel: 'InfiniteShirts.Models.Photo',
 		collectionType: 'InfiniteShirts.Collections.Photos',
-		ReverseRelation: {
+		reverseRelation: {
 			key: 'item',
 			type: Backbone.hasOne
 		}
@@ -12,11 +12,8 @@ InfiniteShirts.Models.Item = Backbone.RelationalModel.extend({
 	{
 		type: Backbone.HasOne,
 		key: 'primary_photo',
-		relatedModel: 'InfiniteShirts.Models.Photo',
-		ReverseRelation: {
-			key: 'item',
-			type: Backbone.hasOne
-		}
+		relatedModel: 'InfiniteShirts.Models.Photo'
+
 	}]
 	
 
