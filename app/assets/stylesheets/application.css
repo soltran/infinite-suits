@@ -46,11 +46,13 @@
 	height: 20%;
 	margin: 10px;
 	box-sizing: border-box;
+	float: left;
 	
 }
 
 .all-forms {
 	width: 60%;
+	float: none;
 	
 }
 
@@ -75,5 +77,29 @@
 
 .extra-photo {
 	width: 10%;
+	
+}
+
+.icon {
+	width: 25px;
+	height: 25px;
+}
+
+.centered {
+	text-align: center;
+/*	display: inline-block;*/
+	float:none;
+	margin:0 auto;
+	
+}
+
+
+.box-size {
+	text-align: center;
+	
+}
+
+.footer {
+
 	
 }

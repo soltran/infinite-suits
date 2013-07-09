@@ -3,7 +3,9 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   template: JST['items/index'],
   
   events: {
-	  "click .item-link": "show"
+	  "click .item-link": "show",
+	  "click .item-fave": "favorite",
+	  "click .item-unfave": "unfavorite"
 	
   },
   
@@ -27,6 +29,18 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
 	  view.render().showModal();
   },
   
+  favorite: function(event){
+	  var id = $(event.target).attr("data-id");
+	  
+	  this.collection.get(id).favorite();
+  },
+  
+  unfavorite: function(event){
+	  var id = $(event.target).attr("data-id");
+	  
+	  this.collection.get(id).unfavorite();
+	
+  }
   
 
 });

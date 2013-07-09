@@ -14,7 +14,18 @@ InfiniteShirts.Models.Item = Backbone.RelationalModel.extend({
 		key: 'primary_photo',
 		relatedModel: 'InfiniteShirts.Models.Photo'
 
-	}]
+	}],
+	
+	favorite: function(){
+		var that = this;
+		
+		$.ajax({
+			url: that.url() + "/favorite"
+			
+			
+		})
+		
+	}
 	
 
 });

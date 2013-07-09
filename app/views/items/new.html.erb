@@ -1,13 +1,13 @@
-<div id="content">
+<div id="content centered">
 
 
-	<span ><h1> List your item </h1>
+	<span ><h1 class=centered> List your item </h1>
 	<br>
 
 	<%= form_for @item, url: {action: "create"}, :html => {:multipart => true} do |f| %>
 
 		<!--  f.error_messages :header_message  =>  "Listing was not published.", :header_tag =>  :h5 -->
-		<ul> 
+		<ul class='centered'> 
 			<h2>1. Select a category</h2>
 
 			<% @categories.each do |category| %>
@@ -25,7 +25,7 @@
 			<br>
 		<% end %>
 
-		<ul>
+		<ul class='centered'>
 			<h2>2. Select a picture</h2>
 			<br>
 			<b>Must upload at least one primary picture</b>
@@ -42,12 +42,12 @@
 		<% end %>
 
 		<ul>
-			<h2>3. Fill in the details</h2>
-			<div class='all-forms'>
+			<h2 class='centered'>3. Fill in the details</h2>
+			<div class='all-forms centered'>
 				<div class='form-field'>
 					<%= f.label :brand %>
 					<%= f.text_field :brand %>
-				</div>
+				</div> 
 				<div class='form-field'>
 				<%= f.label :size %>
 				<%= f.text_field :size %>
@@ -74,8 +74,11 @@
 				<%= f.text_area :additional_info, size: "24x6" %>
 				</div>
 			</div>
-			<br>
-			<br>
+			<% 16.times do |i| %>
+				<br>
+			<% end %>
+		</ul>
+		<ul class='box-size centered'>
 			<h2>4. Select Delivery Type</h2>
 			<br>
 			<div class="shipping-btn-group btn-group btn-group-horizontal">
@@ -87,23 +90,23 @@
 			<br>
 			<br>
 	
-			<pre class='delivery-info all-forms'>
+			<pre class='delivery-info all-forms centered'>
 				<h1>I'll ship this item to the buyer</h1>You will need to pay 99dresses for a pre-paid satchel. USPS rates start from $5.59. When you spend your buttons, the seller will pay for shipping to you!
 			</pre>
-			<pre class='delivery-info all-forms hidden'>
+			<pre class='delivery-info all-forms centered hidden '>
 				<h1>The buyer can pickup this item from me (FREE!)</h1> Please select your location. The exact address will not be displayed to the public.
 			</pre>
 			<input type="hidden" id="delivery_type" value="shipping" name="item[delivery_type]"> 
 			<input type="hidden" id="category-id" value="" name="item[category_id]">
 		
-		</ul>
+		</ul><br>
 		<div>
-			<ul><%= f.submit 'Create Listing', :class => 'm-btn black' %><span>  <%= link_to 'cancel', root_url, :class => 'm-btn mini red' %></span></ul>
+			<ul class='centered'><%= f.submit 'Create Listing', :class => 'm-btn black' %><span>  <%= link_to 'cancel', root_url, :class => 'm-btn mini red' %></span></ul>
 		</div>
 
 	
 	<% end %>
-	<ul>
+	<ul class='centered'>
 		<%= link_to 'Back', root_url, :class => 'btn btn-link' %>
 	</ul>
 </div>

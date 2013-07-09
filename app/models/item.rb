@@ -7,6 +7,8 @@ class Item < ActiveRecord::Base
   
   has_many :photos, as: :imageable, :dependent => :destroy
   
+  has_many :wishes, class_name: 'Wish'
+  
   accepts_nested_attributes_for :photos, allow_destroy: true
   
   validates_presence_of :brand, :size, :item_condition, :original_price, :current_price

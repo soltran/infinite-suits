@@ -3,15 +3,19 @@
 <ul>
 	<% items.each(function(item){ %>
 		<div class='index-item'>
-			<a class="item-link" data-id="<%= item.id %>" href='#'>
-				<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
-				<br>
-				Price: $<%= item.escape('current_price') %>, <%= item.escape('item_condition') %><br>
-				<%= item.escape('brand') %>
+				<a class="item-link" data-id="<%= item.id %>" href='#'>
+					<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
+					<br>
+					Price: $<%= item.escape('current_price') %>, <%= item.escape('item_condition') %><br>
+					<%= item.escape('brand') %>
+				</a>
 				<div class='footer'>
-					<%= item.get('seller').escape('name') %>
+					Listed by: <%= item.get('seller').escape('name') %>
+					<img class="icon" src="<%= item.get("seller").get('profile_pic').escape("image_url") %>">
+					<a class='item-unfave hidden' data-attr='<%= item.id %>' href="#"><img class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/heart_wish.png"></a>
+					<a class='item-fave' href="#" data-attr='<%= item.id %>'><img class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/unheart.png"></a>
 				</div>
-			</a>
 		</div>
+
 	<% }); %>
 </ul>
