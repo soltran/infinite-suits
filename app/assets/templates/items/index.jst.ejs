@@ -2,6 +2,7 @@
 
 <ul>
 	<% items.each(function(item){ %>
+		
 		<div class='index-item'>
 				<a class="item-link" data-id="<%= item.id %>" href='#'>
 					<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
@@ -9,33 +10,41 @@
 					Price: $<%= item.escape('current_price') %>, <%= item.escape('item_condition') %><br>
 					<%= item.escape('brand') %>
 				</a>
+				
 				<div class='footer'>
-					Listed by: <%= item.get('seller').escape('name') %>
-					<% if(item.get("seller").get('profile_pic') != false){ %>
-					<img class="icon" src="<%= item.get("seller").get('profile_pic').escape("image_url") %>">
-					<% } %>
-					<a class='js-item-unfave fave-icon hidden' data-attr='<%= item.id %>' href="#"><img data-attr='<%= item.id %>' class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/heart_wish.png"></a>
-					<a class='js-item-fave fave-icon' href="#" data-attr='<%= item.id %>'><img data-attr='<%= item.id %>' class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/unheart.png"></a>
-					<form id="add_a_wish_form<%= item.id %>" 
-								      action="/favorite"
-								      enctype="multipart/form-data" 
-								      method="POST">
-								  <input name="authenticity_token" 
-								          type="hidden"
-								          value="$('meta[name="csrf-token"]').attr('content')" />
-								  <input type='hidden' name="favorite[item_id]" value='<%= item.id %>'>
-	
-					</form>
-					<form id="delete_a_wish_form<%= item.id %>" 
-													      action="/favorite"
-													      enctype="multipart/form-data" 
-													      method="POST">
-													  <input name="authenticity_token" 
-													          type="hidden"
-													          value="$('meta[name="csrf-token"]').attr('content')" />
-													  <input type='hidden' name="favorite[item_id]" value='<%= item.id %>'>
-	
-					</form>
+				
+					<div class='item-user-info'> 
+						Listed by: <%= item.get('seller').escape('name') %>
+						<% if(item.get("seller").get('profile_pic') != false){ %>
+						<img class="icon" src="<%= item.get("seller").get('profile_pic').escape("image_url") %>">
+						<% } %>
+					</div>
+					
+					<div class="js-faves faves">
+					
+						<% if(item.escape("wish") == false){ %>
+							
+							<a class='js-item-unfave fave-icon hidden' data-attr='<%= item.id %>' href="#"><img data-attr='<%= item.id %>' class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/heart_wish.png"></a>
+							<a class='js-item-fave fave-icon' href="#" data-attr='<%= item.id %>'><img data-attr='<%= item.id %>' class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/unheart.png"></a>
+						
+						<% } else { %>
+							
+							<a class='js-item-unfave fave-icon' data-attr='<%= item.id %>' href="#"><img data-attr='<%= item.id %>' class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/heart_wish.png"></a>
+							<a class='js-item-fave fave-icon hidden' href="#" data-attr='<%= item.id %>'><img data-attr='<%= item.id %>' class="icon" src="https://s3-us-west-1.amazonaws.com/infiniteprod/unheart.png"></a>
+						
+						<% } %>
+						
+						<form id="add_a_wish_form<%= item.id %>" action="/favorite" method="POST">
+							<input name="authenticity_token" type="hidden" value="$('meta[name="csrf-token"]').attr('content')" />
+							<input type='hidden' name="favorite[item_id]" value='<%= item.id %>'>
+						</form>
+						<form id="delete_a_wish_form<%= item.id %>" action="/favorite" method="POST">
+							<input type="hidden" value="delete" name="_method">
+							<input name="authenticity_token" type="hidden" value="$('meta[name="csrf-token"]').attr('content')" />
+							<input type='hidden' name="favorite[item_id]" value='<%= item.id %>'>
+						</form>
+						
+					</div>
 				</div>
 		</div>
 

@@ -9,6 +9,8 @@ class Item < ActiveRecord::Base
   
   has_many :wishes, class_name: 'Wish'
   
+  has_many :wishing_users, through: :wishes, source: :user
+  
   accepts_nested_attributes_for :photos, allow_destroy: true
   
   validates_presence_of :brand, :size, :item_condition, :original_price, :current_price
@@ -24,9 +26,9 @@ class Item < ActiveRecord::Base
               include: { profile_pic: {
                 methods: :image_url }
               }
-            }
+            },
       },
-      methods: :primary_photo
+      methods: [:primary_photo, :wish]
       
     }).merge(options)
     
@@ -39,6 +41,20 @@ class Item < ActiveRecord::Base
         return photo
       end
     end
+  end
+  
+  def wished?(current) 
+     if self.wishing_users.include?(current)
+       @truth = true
+     end
+  end
+  
+  def wish
+    @truth
+  end
+  
+  def cart?
+    
   end
   
 end

@@ -13,8 +13,6 @@ class User < ActiveRecord::Base
   
   has_one :profile_pic, class_name: 'Photo', as: :imageable
   
-  has_many :wish_items
-  
   has_many :wishes, class_name: "Wish"
   
   

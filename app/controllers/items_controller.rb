@@ -3,11 +3,14 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.all
+    @items.each do |item|
+      item.wished?(current_user)
+    end
     @photo = Photo.new
     
     render :json => @items
     
-    # .as_json(:include => :photos)
+    #.as_json(:include => :photos)
   end
   
   def new

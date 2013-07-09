@@ -15,7 +15,10 @@
  *= require jquery.fileupload-ui
  *= require_tree .
  */
-
+* {
+	
+	box-sizing: border-box
+}
 .category {
 	
 	display: inline-block;
@@ -101,5 +104,15 @@
 
 .footer {
 
+	
+}
+
+.item-user-info {
+	width: 75%;
+	
+}
+
+.faves {
+	width: 20%;
 	
 }

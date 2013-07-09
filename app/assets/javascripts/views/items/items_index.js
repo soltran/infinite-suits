@@ -30,29 +30,30 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   },
   
   favorite: function(event){
-	  
+	  event.preventDefault();
 	  var id = $(event.target).attr("data-attr");
 	  var form = "#add_a_wish_form" + id;
-	  console.log(form);
-	  console.log(event.target);
 	  $(form).ajaxSubmit({
 
 		  success: function(response, status){
-		  	  console.log('success');
 			  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
 			  $(".fave-icon" + fave_icon).toggleClass('hidden');
 		  }
-			  
-			  
-		  
-		  
 	  });
   },
   
   unfavorite: function(event){
-	  var id = $(event.target).attr("data-id");
+	  event.preventDefault();
+	  var id = $(event.target).attr("data-attr");
+	  var form = "#delete_a_wish_form" + id;
+	  $(form).ajaxSubmit({
+
+		  success: function(response, status){
+			  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
+			  $(".fave-icon" + fave_icon).toggleClass('hidden');
+		  }
+	  });
 	  
-	  this.collection.get(id).unfavorite();
 	
   }
   
