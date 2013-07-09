@@ -7,7 +7,8 @@ InfiniteShirts.Routers.Items = Backbone.Router.extend({
 		
 	routes: {
 		
-		"": "index"
+		"": "index",
+		"wants": "wants"
 		
 	},
 	
@@ -19,6 +20,11 @@ InfiniteShirts.Routers.Items = Backbone.Router.extend({
 		});
 		
 		this.$rootEl.html(view.render().$el);
+		
+	},
+	
+	wants: function(){
+		
 		
 	}
 

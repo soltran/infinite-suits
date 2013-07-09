@@ -20,7 +20,7 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   },
   
   show: function(event){
-	  
+	  event.preventDefault();
 	  var id = $(event.currentTarget).attr("data-id");
 	  var item = this.collection.get(id);
 	  var view = new InfiniteShirts.Views.ItemShow({

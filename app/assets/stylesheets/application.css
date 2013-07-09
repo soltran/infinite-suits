@@ -36,6 +36,7 @@
 
 .index-item {
 	display: inline-block;
+	text-align: left;
 	width: 20%;
 	height: 20%;
 	margin: 10px;
@@ -115,4 +116,33 @@
 .faves {
 	width: 20%;
 	
+}
+
+.searchbar {
+  *z-index: 2;
+  height: 40px;
+  padding: 8px 35px 8px 14px;
+  margin-bottom: 20px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  background-color: gray;
+  border: 1px solid #fbeed5;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+
+}
+
+.search-icon {
+	height: 20px;
+}
+
+.searchbar-inner ul {
+	display: inline-block;
+	font-color: black;
+	font-weight: bold;
+}
+
+.searchbar-inner ul a {
+	color: black;
+	font-weight: bold;
 }

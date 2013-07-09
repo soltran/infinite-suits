@@ -202,12 +202,12 @@ input[type="color"],
 }
 
 .navbar-inner {
-  background-image: -moz-linear-gradient(top, #9f81f7, #9f81f7);
-  background-image: -ms-linear-gradient(top, #9f81f7, #9f81f7);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9f81f7), to(#9f81f7));
-  background-image: -webkit-linear-gradient(top, #9f81f7, #9f81f7);
-  background-image: -o-linear-gradient(top, #9f81f7, #9f81f7);
-  background-image: linear-gradient(top, #9f81f7, #9f81f7);
+  background-image: -moz-linear-gradient(top, #0B243B, #0B243B);
+  background-image: -ms-linear-gradient(top, #0B243B, #0B243B);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0B243B), to(#0B243B));
+  background-image: -webkit-linear-gradient(top, #0B243B, #0B243B);
+  background-image: -o-linear-gradient(top, #0B243B, #0B243B);
+  background-image: linear-gradient(top, #0B243B, #0B243B);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#'9f81f7, endColorstr='#'9f81f7, GradientType=0);
 }
 
