@@ -172,8 +172,8 @@ input[type="color"],
 
 .alert {
   padding: 8px 35px 8px 14px;
-  background-color: #fcf8e3;
-  border: 1px solid #fbeed5;
+  background-color: white;
+  border: 1px solid white;
 }
 
 .alert-success {
@@ -262,3 +262,5 @@ input[type="color"],
 .badge-info {
    background-color: #3a87ad;
 }
+
+

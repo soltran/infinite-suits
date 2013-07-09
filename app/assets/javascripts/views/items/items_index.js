@@ -4,8 +4,8 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   
   events: {
 	  "click .item-link": "show",
-	  "click .item-fave": "favorite",
-	  "click .item-unfave": "unfavorite"
+	  "click .js-item-fave": "favorite",
+	  "click .js-item-unfave": "unfavorite"
 	
   },
   
@@ -30,9 +30,23 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   },
   
   favorite: function(event){
-	  var id = $(event.target).attr("data-id");
 	  
-	  this.collection.get(id).favorite();
+	  var id = $(event.target).attr("data-attr");
+	  var form = "#add_a_wish_form" + id;
+	  console.log(form);
+	  console.log(event.target);
+	  $(form).ajaxSubmit({
+
+		  success: function(response, status){
+		  	  console.log('success');
+			  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
+			  $(".fave-icon" + fave_icon).toggleClass('hidden');
+		  }
+			  
+			  
+		  
+		  
+	  });
   },
   
   unfavorite: function(event){
