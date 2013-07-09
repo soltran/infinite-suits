@@ -18,12 +18,31 @@ InfiniteShirts.Models.Item = Backbone.RelationalModel.extend({
 	
 	favorite: function(){
 		var that = this;
+		console.log(this.id);
 		
 		$.ajax({
-			url: that.url() + "/favorite"
-			
-			
+			url: "favorite",
+			type: "POST",
+			// data: { favorite[item_id]: this.id},
+			success: function() {
+				fave = new InfiniteShirts.Models.Favorite()
+				fave.set("favorited", true);
+			}
 		})
+		
+	},
+	
+	unfavorite: function(){
+		var that = this;
+		
+		$.ajax({
+			url: "favorite",
+			type: "DELETE",
+			success: function() {
+				fave = new InfiniteShirts.Models.Favorite()
+				fave.set("favorited", false);
+			}
+		});
 		
 	}
 	
