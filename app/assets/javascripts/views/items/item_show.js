@@ -60,7 +60,7 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 			  $(".js-cart-image" + dataId).toggleClass('hidden');
 			  $(".js-cart-btn").toggleClass('hidden');
 			  $(".index-item" + dataId).toggleClass('outlined');
-			  model.set("cart", false);
+			  model.set("cart", null);
 		  }
 	  });
 	

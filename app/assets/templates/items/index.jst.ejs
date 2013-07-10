@@ -25,9 +25,9 @@
 	<% items.each(function(item){ %>
 		
 		<% cart_class = item.escape("cart") ? "outlined" : "" %>
-		<% wish_class = item.escape("wish") ? "" : "item-wanted" %>
+		<% wish_class = item.escape("wish") ? "item-wanted" : "item-unwanted" %>
 		
-			<div class='index-item <%= wish_class %> <%= cart_class %>' data-attr='<%= item.id %>'>
+			<div class='index-item centered <%= wish_class %> <%= cart_class %>' data-attr='<%= item.id %>'>
 			
 				<% if(item.escape("cart") == false){ %>
 					<img class='image-top-right js-cart-image hidden' data-attr='<%= item.id %>' src='https://s3-us-west-1.amazonaws.com/infiniteprod/cart.png'>
