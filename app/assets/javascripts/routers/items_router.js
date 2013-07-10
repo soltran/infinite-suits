@@ -15,7 +15,7 @@ InfiniteShirts.Routers.Items = Backbone.Router.extend({
 	index: function(){
 		var that = this;
 		var view = new InfiniteShirts.Views.ItemsIndex({
-			collection: that.collection
+			collection: that.collection.models
 			
 		});
 		
@@ -24,7 +24,14 @@ InfiniteShirts.Routers.Items = Backbone.Router.extend({
 	},
 	
 	wants: function(){
+		var that = this;
+		var wants = this.collection.where({ wish: true});
+		var view = new InfiniteShirts.Views.ItemsIndex({
+			collection: wants
+			
+		});
 		
+		this.$rootEl.html(view.render().$el);
 		
 	}
 
