@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
   def index
     @items = Item.all
     @items.each do |item|
-      item.set_wish(current_user) || item.set_cart(current_user)
+      item.set_wish(current_user)
+      item.set_cart(current_user)
     end
     @photo = Photo.new
     

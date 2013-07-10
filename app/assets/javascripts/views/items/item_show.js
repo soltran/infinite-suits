@@ -40,6 +40,7 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 			  dataId = '[data-attr=' + '"' + id + '"' + "]";
 			  $(".js-cart-image" + dataId).toggleClass('hidden');
 			  $(".js-cart-btn").toggleClass('hidden');
+			  $(".index-item" + dataId).toggleClass('outlined');
 			  model.set("cart", true);
 		  }
 	  });
@@ -58,6 +59,7 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 			  dataId = '[data-attr=' + '"' + id + '"' + "]";
 			  $(".js-cart-image" + dataId).toggleClass('hidden');
 			  $(".js-cart-btn").toggleClass('hidden');
+			  $(".index-item" + dataId).toggleClass('outlined');
 			  model.set("cart", false);
 		  }
 	  });

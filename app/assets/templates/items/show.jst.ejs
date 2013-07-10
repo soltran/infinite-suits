@@ -21,8 +21,13 @@
 </div>
 
 <div class="modal-footer">
-	<button class="m-btn green js-cart-btn js-add-to-cart" aria-hidden="true">Add to Cart</button>
-	<button class="m-btn purple js-cart-btn js-remove-from-cart hidden" aria-hidden="true">Remove from Cart</button>
+	<% if(item.escape("cart") == false){ %>
+		<button class="m-btn green js-cart-btn js-add-to-cart" aria-hidden="true">Add to Cart</button>
+		<button class="m-btn purple js-cart-btn js-remove-from-cart hidden" aria-hidden="true">Remove from Cart</button>
+	<% } else { %>
+		<button class="m-btn green js-cart-btn js-add-to-cart hidden" aria-hidden="true">Add to Cart</button>
+		<button class="m-btn purple js-cart-btn js-remove-from-cart" aria-hidden="true">Remove from Cart</button>
+	<% } %>
 	<button class="m-btn red modal-close" data-dismiss="modal" aria-hidden="true">Close</button>
 </div>
 
