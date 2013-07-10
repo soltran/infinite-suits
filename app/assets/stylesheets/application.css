@@ -146,3 +146,8 @@
 	color: black;
 	font-weight: bold;
 }
+
+.searchbar-inner li {
+	display: inline-block;
+	
+}

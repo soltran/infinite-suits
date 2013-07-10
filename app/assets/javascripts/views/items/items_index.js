@@ -5,7 +5,9 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   events: {
 	  "click .item-link": "show",
 	  "click .js-item-fave": "favorite",
-	  "click .js-item-unfave": "unfavorite"
+	  "click .js-item-unfave": "unfavorite",
+	  "click .js-show-want": "want",
+	  "click .js-unshow-want": "unwant"
 	
   },
   
@@ -33,12 +35,15 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   favorite: function(event){
 	  event.preventDefault();
 	  var id = $(event.target).attr("data-attr");
+	  var model = this.collection.get(id);
 	  var form = "#add_a_wish_form" + id;
 	  $(form).ajaxSubmit({
 
 		  success: function(response, status){
 			  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
 			  $(".fave-icon" + fave_icon).toggleClass('hidden');
+			  $(".index-item" + fave_icon).toggleClass('item-unwanted');
+			  model.set("wish", true);
 		  }
 	  });
   },
@@ -46,16 +51,33 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   unfavorite: function(event){
 	  event.preventDefault();
 	  var id = $(event.target).attr("data-attr");
+	  var model = this.collection.get(id);
 	  var form = "#delete_a_wish_form" + id;
 	  $(form).ajaxSubmit({
 
 		  success: function(response, status){
 			  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
 			  $(".fave-icon" + fave_icon).toggleClass('hidden');
+			  $(".index-item" + fave_icon).toggleClass('item-unwanted');
+			  model.set("wish", false);
 		  }
 	  });
 	  
 	
+  },
+  
+  want: function(event){
+  	event.preventDefault();
+	$(".item-unwanted").toggleClass('hidden');
+	$(".js-want-li").toggleClass('hidden');
+	$(".js-index-title").toggleClass('hidden');
+  },
+  
+  unwant: function(event){
+  	event.preventDefault();
+	$(".item-unwanted").toggleClass('hidden');
+	$(".js-want-li").toggleClass('hidden');
+	$(".js-index-title").toggleClass('hidden');
   }
   
 
