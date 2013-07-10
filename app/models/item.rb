@@ -11,6 +11,10 @@ class Item < ActiveRecord::Base
   
   has_many :wishing_users, through: :wishes, source: :user
   
+  has_many :carts, class_name: 'Cart'
+  
+  has_many :prospective_buyers, through: :carts, source: :user
+  
   accepts_nested_attributes_for :photos, allow_destroy: true
   
   validates_presence_of :brand, :size, :item_condition, :original_price, :current_price
@@ -43,7 +47,7 @@ class Item < ActiveRecord::Base
     end
   end
   
-  def wished?(current) 
+  def set_wish(current) 
      if self.wishing_users.include?(current)
        @wishing = true
      end
@@ -53,8 +57,10 @@ class Item < ActiveRecord::Base
     @wishing
   end
   
-  def cart?
-   
+  def set_cart(current)
+    if self.prospective_buyers.include?(current)
+      @shopping = true
+    end
   end
   
   def cart
