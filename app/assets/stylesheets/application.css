@@ -31,6 +31,8 @@
 
 .outlined {
 	border:1px solid green;
+	border-color: #071522;
+	
 	
 }
 
@@ -62,7 +64,7 @@
 
 .delivery-info h1 {
 	text-align:center;
-	color: purple;
+	color: #071522;
 	font-size: 1.5em;
 	
 }
@@ -149,5 +151,10 @@
 
 .searchbar-inner li {
 	display: inline-block;
+	
+}
+
+.price .btn {
+	height: 30px;
 	
 }

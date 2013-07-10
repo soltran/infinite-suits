@@ -40,7 +40,7 @@
 				
 					<div class='item-user-info'> 
 						Listed by: <%= item.get('seller').escape('name') %>
-						<% if(item.get("seller").get('profile_pic') != false){ %>
+						<% if(item.get("seller").get('profile_pic') != null){ %>
 						<img class="icon" src="<%= item.get("seller").get('profile_pic').escape("image_url") %>">
 						<% } %>
 					</div>

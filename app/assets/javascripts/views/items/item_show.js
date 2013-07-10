@@ -23,7 +23,7 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 	  $('.primary-photo').addClass('extra-photo');
 	  $('.primary-photo').removeClass('primary-photo');
 	  $(event.target).addClass('primary-photo');
-	  $(event.target).removeClass('extra-photo')
+	  $(event.target).removeClass('extra-photo');
 	
   }
   

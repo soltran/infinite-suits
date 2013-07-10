@@ -28,7 +28,7 @@ class Item < ActiveRecord::Base
               }
             },
       },
-      methods: [:primary_photo, :wish]
+      methods: [:primary_photo, :wish, :cart]
       
     }).merge(options)
     
@@ -45,16 +45,20 @@ class Item < ActiveRecord::Base
   
   def wished?(current) 
      if self.wishing_users.include?(current)
-       @truth = true
+       @wishing = true
      end
   end
   
   def wish
-    @truth
+    @wishing
   end
   
   def cart?
-    
+   
+  end
+  
+  def cart
+    @shopping
   end
   
 end
