@@ -1,13 +1,13 @@
-<div class="container-fluid">
+<div class="container-fluid centered log-in-form full-transparency">
 	<div class="row-fluid">
 		
 		<!-- Form Name -->
-		<h2>Edit your Account</h2>
+		<h2>Edit your Account</h2><br>
 		
 		<!-- File Button --> 
 		
-		<div class="control-group">
-			<div id="add_photo_div">
+		<div class="">
+			<div class='centered' id="add_photo_div">
 				<% unless @user.profile_pic.nil? %>
 					<img src="<%= @user.profile_pic.url %>" alt="profile pic">
 				<% end %>
@@ -22,10 +22,10 @@
 			  <input type='file' name="photo[image]" id="add_a_file" STYLE="opacity: 0">
 	
 			</form>
-			<a href='#' id="click_to_add_file">Upload Profile Pic</a>
+			<a href='#' class='centered' id="click_to_add_file">Upload Profile Pic</a>
 			
 		  </div>
-		</div>
+		</div><br>
 		
 		
 		<form method="post" action="<%= account_url %>" class="form-horizontal">
@@ -33,30 +33,30 @@
 			<input type="hidden" value="form_authenticity_token" name="authenticity_token">
 
 		<!-- Name input-->
-		<div class="control-group">
-		  <label class="control-label">Name</label>
-		  <div class="controls">
+		<div class="">
+		  <label class="">Name:</label><br>
+		  <div class="">
 		    <input id="name" value="<%= @user.name %>" name="user[name]" type="text" >
 		  </div>
-		</div>
+		</div><br>
 		
 
 		<!-- Email input-->
-		<div class="control-group">
-		  <label class="control-label">Email</label>
-		  <div class="controls">
+		<div class="">
+		  <label class="">Email:</label><br>
+		  <div class="">
 		    <input id="email" value="<%= @user.email %>" name="user[email]" type="text" >
 			<div id="div_photo_ids"></div>
 			<input type="hidden" id="profile_pic" name="photo[id]" value="">
 			
 		  </div>
-		</div>
+		</div><br>
 
 
 		<!-- Button -->
-		<div class="control-group">
-		  <label class="control-label"></label>
-		  <div class="controls">
+		<div class="">
+		  <label class=""></label>
+		  <div class="">
 		    <input type="submit" class="btn btn-primary" value="Make Change">
 		  </div>
 		</div>

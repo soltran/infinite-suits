@@ -23,7 +23,7 @@
              <ul class="nav">
                <li><%= link_to "Browse Products", root_url %></li>
                <li><%= link_to "List your Item", new_item_url %></li>
-               <li><%= link_to "Shopping Cart" %></li>
+               <li><%= link_to "Shopping Cart", cart_url %></li>
 				<% if user_signed_in? %>
 				  <li><img src="<%= current_user.profile_pic.url unless current_user.profile_pic.nil?%>" width="25" height="25"></li>
 				  <li><%= drop_down current_user.email do %>

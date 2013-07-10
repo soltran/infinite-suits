@@ -6,7 +6,7 @@ InfiniteShirts::Application.routes.draw do
   resources :photos
   resource :account, :only => [:edit, :update]
   resource :favorite, :only => [:create, :destroy]
-  resource :cart, :only => [:create, :destroy]
+  resource :cart, :only => [:create, :destroy, :show]
 
   root :to => "home#index"
   

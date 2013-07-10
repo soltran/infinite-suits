@@ -17,5 +17,7 @@ class User < ActiveRecord::Base
   
   has_many :carts, class_name: "Cart"
   
+  has_many :cart_items, through: :carts, source: :item
+  
   
 end
