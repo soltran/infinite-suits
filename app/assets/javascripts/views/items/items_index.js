@@ -74,7 +74,7 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   
   unwant: function(event){
   	event.preventDefault();
-	$(".item-unwanted").toggleClass('hidden');
+	$(".item-unwanted").removeClass('hidden');
 	$(".js-want-li").toggleClass('hidden');
 	$(".js-index-title").toggleClass('hidden');
   }
