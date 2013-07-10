@@ -29,6 +29,12 @@
 		<% } else { %>
 			<div class='index-item' data-attr='<%= item.id %>'>
 		<% } %>
+				<% if(item.escape("cart") == false){ %>
+					<img class='image-top-right js-cart-image hidden' data-attr='<%= item.id %>' src='https://s3-us-west-1.amazonaws.com/infiniteprod/cart.png'>
+				<% } else { %>
+					<img class='image-top-right js-cart-image' data-attr='<%= item.id %>' src='https://s3-us-west-1.amazonaws.com/infiniteprod/cart.png'>
+				<% } %>
+				
 				<a class="item-link" data-id="<%= item.id %>" href='#'>
 					<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
 					<br>

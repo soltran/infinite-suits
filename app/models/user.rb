@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   
   has_many :wishes, class_name: "Wish"
   
-  has_one :cart, class_name: "Cart"
+  has_many :carts, class_name: "Cart"
   
   
 end

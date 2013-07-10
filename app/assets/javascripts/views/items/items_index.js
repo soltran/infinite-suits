@@ -12,7 +12,6 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   },
   
   render: function(){
-	  console.log(this.collection);
 	  var renderedTemplate = this.template({
 		  items: this.collection
 		

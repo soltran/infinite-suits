@@ -1,21 +1,40 @@
 <h1><div class='modal-header'><%= item.escape('brand') + item.escape('material') %></div></h1>
 
 <div class="modal-body">
-<% photos.each(function(photo){ %>
-	<% if(photo.escape('primary_photo') == false){ %>
-		<a href="#"><img class="photo-show extra-photo" src="<%= photo.escape('image_url') %>" alt="photo-image"></a>
-	<% } else { %>
-		<a href="#"><img class="photo-show primary-photo" src="<%= photo.escape('image_url') %>" alt="photo-image"></a>
-<% }}); %>
-<div class='span8'>
-<b>Price:</b> $<%= item.escape('current_price')%><br>
-<b>Original Price:</b> $<%= item.escape('original_price')%><br>
-<b>Brand:</b> <%= item.escape('brand')%><br>
-<b>Size:</b><%= item.escape('size')%><br>
-<b>Item Condition:</b> <%= item.escape('item_condition')%><br>
-<b>Delivery type:</b> <%= item.escape('delivery_type')%><br>
+
+	<% photos.each(function(photo){ %>
+		<% if(photo.escape('primary_photo') == false){ %>
+			<a href="#"><img class="photo-show extra-photo" src="<%= photo.escape('image_url') %>" alt="photo-image"></a>
+		<% } else { %>
+			<a href="#"><img class="photo-show primary-photo" src="<%= photo.escape('image_url') %>" alt="photo-image"></a>
+	<% }}); %>
+
+	<div class='span8'>
+		<b>Price:</b> $<%= item.escape('current_price')%><br>
+		<b>Original Price:</b> $<%= item.escape('original_price')%><br>
+		<b>Brand:</b> <%= item.escape('brand')%><br>
+		<b>Size:</b><%= item.escape('size')%><br>
+		<b>Item Condition:</b> <%= item.escape('item_condition')%><br>
+		<b>Delivery type:</b> <%= item.escape('delivery_type')%><br>
+	</div>
+	
 </div>
-</div>
+
 <div class="modal-footer">
-<button class="btn modal-close" data-dismiss="modal" aria-hidden="true">Close</button>
+	<button class="m-btn green js-cart-btn js-add-to-cart" aria-hidden="true">Add to Cart</button>
+	<button class="m-btn purple js-cart-btn js-remove-from-cart hidden" aria-hidden="true">Remove from Cart</button>
+	<button class="m-btn red modal-close" data-dismiss="modal" aria-hidden="true">Close</button>
 </div>
+
+<form id="add_to_cart_form" action="/cart" method="POST">
+	<input name="authenticity_token" type="hidden" value="$('meta[name="csrf-token"]').attr('modal-header')" />
+	<input type='hidden' name="cart[item_id]" value='<%= item.id %>'>
+</form>
+
+<form id="remove_from_cart_form" action="/cart" method="POST">
+	<input type="hidden" value="delete" name="_method">
+	<input name="authenticity_token" type="hidden" value="$('meta[name="csrf-token"]').attr('modal-header')" />
+	<input type='hidden' name="cart[item_id]" value='<%= item.id %>'>
+</form>
+
+	

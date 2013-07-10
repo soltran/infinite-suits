@@ -158,3 +158,10 @@
 	height: 30px;
 	
 }
+
+.image-top-right {
+	position: absolute;
+	float: right;
+	height: 8%;
+	
+}

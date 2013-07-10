@@ -3,7 +3,9 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
   template: JST['items/show'],
   
   events: {
-	  "click .extra-photo": "switchPhoto"
+	  "click .extra-photo": "switchPhoto",
+	  "click .js-add-to-cart": "addToCart",
+	  "click .js-remove-from-cart": "removeFromCart"
 	
   },
   
@@ -25,8 +27,42 @@ InfiniteShirts.Views.ItemShow = Backbone.ModalView.extend({
 	  $(event.target).addClass('primary-photo');
 	  $(event.target).removeClass('extra-photo');
 	
-  }
+  },
   
+  addToCart: function(event){
+	  event.preventDefault();
+	  var id = this.model.id;
+	  var model = this.model;
+	  var form = "#add_to_cart_form";
+	  $(form).ajaxSubmit({
+
+		  success: function(response, status){
+			  dataId = '[data-attr=' + '"' + id + '"' + "]";
+			  $(".js-cart-image" + dataId).toggleClass('hidden');
+			  $(".js-cart-btn").toggleClass('hidden');
+			  model.set("cart", true);
+		  }
+	  });
+	
+	
+  },
+  
+  removeFromCart: function(event){
+	  event.preventDefault();
+	  var id = this.model.id;
+	  var model = this.model;
+	  var form = "#remove_from_cart_form";
+	  $(form).ajaxSubmit({
+
+		  success: function(response, status){
+			  dataId = '[data-attr=' + '"' + id + '"' + "]";
+			  $(".js-cart-image" + dataId).toggleClass('hidden');
+			  $(".js-cart-btn").toggleClass('hidden');
+			  model.set("cart", false);
+		  }
+	  });
+	
+  }
   
 
 });
