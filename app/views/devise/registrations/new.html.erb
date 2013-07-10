@@ -1,4 +1,4 @@
-<div class='centered'>
+<div class='log-in-form centered'>
 	<h2>Sign up</h2>
 
 	<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
@@ -21,3 +21,33 @@
 
 	<%= render "devise/shared/links" %>
 </div>
+
+<style>
+
+body{
+
+	background: url(<%= asset_path 'view3.png' %>) no-repeat center center fixed;
+	-webkit-background-size: 100% auto;
+	-moz-background-size: 100% auto;
+	-ms-background-size: 100% auto;
+	-o-background-size: 100% auto;
+	background-size: 100% auto;
+}
+
+.log-in-form {
+	background-color: #0c243b;
+	width: 30%; 
+	height: 40%;
+	color: white;
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    filter: alpha(opacity=70);
+    opacity:.7;
+
+}
+
+.log-in-form h2 {
+	color: white;
+
+}
+
+</style>

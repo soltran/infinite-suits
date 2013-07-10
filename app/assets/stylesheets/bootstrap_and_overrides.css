@@ -154,9 +154,10 @@ input[type="color"],
 }
 
 .alert {
-  padding: 8px 35px 8px 14px;
-  background-color: white;
-  border: 1px solid white;
+  text-align: center;
+  color: #0c243b;
+  padding: 0px 0px 0px 0px;
+  border: 1px;
 }
 
 .alert-success {
