@@ -31,11 +31,14 @@
 				  		<%= menu_item "Log out", destroy_user_session_url, :method => :delete %>
 				  </li>
 				  <% end%>
+				  
+					<li class='user-gold'><img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' 					height='30'></li>
+					<li><%= link_to current_user.gold %></li>
+
 				<% else %>
 				<li><%= link_to "Log In", root_url %></li>
 				<% end %>
-				<li class='user-gold'><img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' 					height='30'></li>
-				<li><%= link_to current_user.gold %></li>
+
 
              </ul>
            </div>
