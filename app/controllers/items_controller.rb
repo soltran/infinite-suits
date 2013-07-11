@@ -27,7 +27,7 @@ class ItemsController < ApplicationController
   
   def create
     @categories = Category.all
-    @item = current_user.items.build(params[:item])
+    @item = current_user.sell_items.build(params[:item])
     if @item.save
       redirect_to root_url
     else
