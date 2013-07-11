@@ -33,7 +33,6 @@
 	border:1px solid green;
 	border-color: #071522;
 	
-	
 }
 
 .index-item {
@@ -228,3 +227,25 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0c243b', endColorstr='#0c243b', GradientType=0);
 }
 
+.gold-plan b {
+	padding-top: 30px;
+	font-size: 1.5em;
+	display: inline-block;
+	font-color: white;
+	
+}
+
+.gold-plan {
+	margin-top: 30px;
+	background-color: gray;
+	width: 15%;
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	
+}
+
+.gold-plans {
+	width: 70%;
+	
+}

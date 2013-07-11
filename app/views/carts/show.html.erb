@@ -86,7 +86,7 @@
 			<div class='m-btn dark-blue checkout-btn js-checkout'>Checkout</div>
 		<% else %>
 			<div class='centered'> You do not have enough gold</div>
-			<div class='m-btn purple buy-gold-btn'><%= link_to 'Buy More Gold', cart_url, method: 'get' %></div>
+			<div class='m-btn purple buy-gold-btn'><%= link_to 'Buy More Gold', buy_url, method: 'get' %></div>
 		<% end %>
 	</div>
 	
@@ -95,10 +95,11 @@
 
 <% end %>
 
-<!-- <form id="add_new_purchase_form" action="/purchases" method="POST">
-	<input name="authenticity_token" type="hidden" value="$('meta[name="csrf-token"]').attr('content')" />
-	<input type='hidden' name="" value=''>
-</form> -->
+
+	<input name="authenticity_token" type="hidden" value="form_authenticity_token">
+	<input type='hidden' name="cart_items" value='<%= @cart_items %>'>
+	<input type='hidden' name="transaction[buyer_id]" value="<%= current_user.id %>">
+</form>
 
 <script>
 

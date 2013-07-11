@@ -18,7 +18,7 @@ class ItemsController < ApplicationController
   
   def new
     @categories = Category.all
-    @item = current_user.items.build
+    @item = current_user.sell_items.build
     @prime_photo = Photo.new
     @photo1 = Photo.new
     @photo2 = Photo.new

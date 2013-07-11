@@ -1,0 +1,127 @@
+<h1 class="centered"> Buy Gold Here </h1>
+<br>
+<div class='gold-plans centered'>
+	<div class='gold-ten gold-plan centered'>
+		<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='50' height='50'>
+		<b>10</b>
+		<br>
+		<b>$10.00</b>
+		<br>
+		<br>
+		<button class="m-btn green buy-btn" type="button">Buy Now</button>
+		<br>
+		<br>
+	</div>
+	
+	<div class='gold-27 gold-plan centered'>
+		<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='50' height='50'>
+		<b>27</b>
+		<br>
+		<b>$25.00</b>
+		<br>
+		<br>
+		<button class="m-btn green buy-btn" type="button">Buy Now</button>
+		<br>
+		<br>
+	</div>
+	
+	<div class='gold-55 gold-plan centered'>
+		<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='50' height='50'>
+		<b>55</b>
+		<br>
+		<b>$50.00</b>
+		<br>
+		<br>
+		<button class="m-btn green buy-btn" type="button">Buy Now</button>
+		<br>
+		<br>
+	</div>
+	
+	<div class='gold-115 gold-plan centered'>
+		<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='50' height='50'>
+		<b>115</b>
+		<br>
+		<b>$100.00</b>
+		<br>
+		<br>
+		<button class="m-btn green buy-btn" type="button">Buy Now</button>
+		<br>
+		<br>
+	</div>
+	
+	<div class='gold-240 gold-plan centered'>
+		<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='50' height='50'>
+		<b>240</b>
+		<br>
+		<b>$200.00</b>
+		<br>
+		<br>
+		<button class="m-btn green buy-btn" type="button">Buy Now</button>
+		<br>
+		<br>
+	</div>
+	
+</div>
+
+<div id="myModal" class="modal hide fade">
+    <!-- dialog contents -->
+    <div class="modal-body centered">
+		<h1 class='centered'>Buy Gold</h1>
+		<!-- <div class="span3">
+			<div class='gold-ten centered'>
+				<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='50' height='50'>
+				<b>10</b>
+				<br>
+				<b>$10.00</b>
+				<br>
+				<br>
+				<button class="m-btn green buy-btn" type="button">Buy Now</button>
+				<br>
+				<br>
+			</div>
+			
+		</div> -->
+		<br>
+		<div class="centered">
+			<label for="card_number">Card Number</label>
+			<input type="text" id="card_number">
+			<br>
+			<label for="card_number">Expiration (MM/YYYY)</label>
+			<input type="text" id="card_number">
+			<label for="card_number">CVC</label>
+			<input type="text" id="card_number">
+			
+		</div>
+	</div>
+    <!-- dialog buttons -->
+    <div class="modal-footer">
+		<a href="#" class="m-btn red btn">cancel</a>
+		<a href="#" class="m-btn green">Purchase</a>
+	</div>
+	
+</div>
+
+
+<script>
+
+$(".buy-btn").click(function(){
+	$("#myModal").on("show", function() {    // wire up the OK button to dismiss the modal when shown
+	        $("#myModal a.btn").on("click", function(e) {
+	            console.log("button pressed");   // just as an example...
+	            $("#myModal").modal('hide');     // dismiss the dialog
+	        });
+	    });
+ 
+    
+	    $("#myModal").modal({                    // wire up the actual modal functionality and show the dialog
+	      "backdrop"  : "static",
+	      "keyboard"  : true,
+	      "show"      : true                     // ensure the modal is shown immediately
+	    });
+
+
+	});
+
+
+</script>
+
