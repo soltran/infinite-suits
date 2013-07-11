@@ -15,6 +15,7 @@
 //= require jquery.form
 //= require underscore
 //= require bootstrap.min
+//= require bootbox.min.js
 //= require backbone
 //= require backbone-relational
 //= require backbone-modal-dialog

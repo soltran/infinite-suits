@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710182106) do
+ActiveRecord::Schema.define(:version => 20130710235656) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(:version => 20130710182106) do
 
   create_table "items", :force => true do |t|
     t.integer  "seller_id"
-    t.decimal  "current_price",   :precision => 8, :scale => 2
-    t.decimal  "original_price",  :precision => 8, :scale => 2
+    t.integer  "current_price"
+    t.decimal  "original_price",  :precision => 8, :scale => 3
     t.string   "brand"
     t.string   "size"
     t.string   "item_condition"
@@ -72,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20130710182106) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.integer  "gold"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

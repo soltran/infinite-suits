@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  after_initialize :init
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
@@ -19,5 +20,10 @@ class User < ActiveRecord::Base
   
   has_many :cart_items, through: :carts, source: :item
   
+  def init
+    self.gold ||= 0
+    
+  end
+
   
 end

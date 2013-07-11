@@ -39,20 +39,20 @@
 				<a class="item-link" data-id="<%= item.id %>" href='#'>
 					<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
 					<br>
-					Price: $<%= item.escape('current_price') %>, <%= item.escape('item_condition') %><br>
+					Original: $<%= item.escape('original_price') %><%= item.escape('item_condition') %><br>
 					<%= item.escape('brand') %>
 				</a>
 				
 				<div class='footer'>
 				
-					<div class='item-user-info'> 
+					<div class='item-user-info footer-item'> 
 						Listed by: <%= item.get('seller').escape('name') %>
 						<% if(item.get("seller").get('profile_pic') != null){ %>
 						<img class="icon" src="<%= item.get("seller").get('profile_pic').escape("image_url") %>">
 						<% } %>
 					</div>
 					
-					<div class="js-faves faves">
+					<div class="js-faves faves footer-item">
 					
 						<% if(item.escape("wish") == false){ %>
 							
@@ -77,6 +77,12 @@
 						</form>
 						
 					</div>
+					
+					<div class='gold-sell-price footer-item'>
+						<img class='centered' src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'>
+						<div class='price centered'><%= item.escape('current_price') %></div>
+					</div>
+					
 				</div>
 		</div>
 

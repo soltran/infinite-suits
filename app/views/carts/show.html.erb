@@ -1,68 +1,133 @@
 <h1 class='centered'> Your Shopping Cart </h1><br>
-<div class='checkout-table centered'>
-	<% subtotal = 0 %>
+
+<% if @cart_items.length == 0 %>
+
+	<div class='centered'> You have no items in your cart</div>
+
+
+<% else %>
+
+	<div class='checkout-table centered'>
+		<% subtotal = 0 %>
+		<% delivery_total = 0 %>
 	
-	<table class='checkout-table table'>
-		<thead>
-			<th></th>
-			<th>Item name</th>
-			<th>Properties</th>
-			<th>Seller</th>
-			<th>Delivery type</th>
-			<th class="currency">Selling price</th>
-			<th></th>
-		</thead>
-		<tbody>
+		<table class='checkout-table table'>
+			<thead>
+				<th></th>
+				<th>Item name</th>
+				<th>Properties</th>
+				<th>Seller</th>
+				<th>Delivery type</th>
+				<th class="currency">Selling price</th>
+				<th></th>
+			</thead>
+			<tbody>
 			
-			<% @cart_items.each do |item| %>
-				<tr>
-					<td>
-						<div class style="width: 100px;">
-							<img src='<%= item.primary_photo.image_url %>' alt="photo-image" width="100" height="100">
-						</div>
-					</td>
-					<td> <%= item.brand %></td>
-					<td>Size: <%= item.size %>/<%= item.item_condition %></td>
-					<td> <%= item.seller.name %> </td>
-					<td> <%= item.delivery_type %> </td>
-					<td> $ <%=item.current_price %>0 </td>
-					<td> <%= link_to "X", cart_url(:cart  => {:item_id => item.id }), method: 'delete' %> </td>
-				</tr>
+				<% @cart_items.each do |item| %>
+					<tr>
+						<td>
+							<div class style="width: 100px;">
+								<img src='<%= item.primary_photo.image_url %>' alt="photo-image" width="100" height="100">
+							</div>
+						</td>
+						<td> <%= item.brand %></td>
+						<td>Size: <%= item.size %>/<%= item.item_condition %></td>
+						<td> <%= item.seller.name %> </td>
+						<td> <%= item.delivery_type %> </td>
+						<td>
+							<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' 							  width='30' height='30'> 
+							 <%=item.current_price %> </td>
+						<td> <%= link_to "X", cart_url(:cart  => {:item_id => item.id }), method: 'delete' %> </td>
+					</tr>
 					
-				<% subtotal += item.current_price %>
+					<% subtotal += item.current_price %>
+					<% delivery_total += 3 if item.delivery_type == "shipping" %>
 
-			<% end %>
+				<% end %>
 			
-			<tr class="total-break">
-				<td></td>
-				<td colspan="4"> <b>Sub-total</b></td>
-				<td class="currency">
-					<strong class="price-gold">$<%= subtotal %>0</strong>
-				</td>
+				<tr class="total-break">
+					<td></td>
+					<td colspan="4"> <b>Sub-total</b></td>
+					<td class="currency">
+						<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'> 
+						<strong class="price-gold"><%= subtotal %></strong>
+					</td>
 				
 			
-			</tr>
-			<tr class="shipping-break">
-				<td></td>
-				<td colspan="4"> <b>Shipping</b></td>
-				<td class="currency">
-					<strong class="price-shipping">$<%= @cart_items.length * 3 %>.00</strong>
-				</td>
+				</tr>
+				<tr class="shipping-break">
+					<td></td>
+					<td colspan="4"> <b>Shipping</b></td>
+					<td class="currency">
+						<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'> 
+						<strong class="price-shipping"><%= delivery_total %></strong>
+					</td>
+				</tr>
+				
+				<% total = subtotal + delivery_total %>
+				
+				<tr class="shipping-break">
+					<td></td>
+					<td colspan="4"> <b>Total</b></td>
+					<td class="currency">
+						<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'> 
+						<strong class="price-total"><%= total %> </strong>
+					</td>
 				
 			
-			</tr>
-			<tr class="shipping-break">
-				<td></td>
-				<td colspan="4"> <b>Total</b></td>
-				<td class="currency">
-					<strong class="price-total">$<%= @cart_items.length * 3 + subtotal %>0 </strong>
-				</td>
-				
-			
-			</tr>
+				</tr>
 			
 			
-		</tbody>
+			</tbody>
 
-	</table>
-</div>
+		</table>
+		<br>
+		<% if total <= current_user.gold %>
+			<div class='m-btn dark-blue checkout-btn js-checkout'>Checkout</div>
+		<% else %>
+			<div class='centered'> You do not have enough gold</div>
+			<div class='m-btn purple buy-gold-btn'><%= link_to 'Buy More Gold', cart_url, method: 'get' %></div>
+		<% end %>
+	</div>
+	
+	<% gold_left = current_user.gold - total %>
+	
+
+<% end %>
+
+<!-- <form id="add_new_purchase_form" action="/purchases" method="POST">
+	<input name="authenticity_token" type="hidden" value="$('meta[name="csrf-token"]').attr('content')" />
+	<input type='hidden' name="" value=''>
+</form> -->
+
+<script>
+
+$(".js-checkout").click(function(){
+	bootbox.confirm("Your total is <%= total %> gold. You will have <%= gold_left %> gold left.", function(result) {
+		if(result == true){
+			// console.log('true');
+// 			var id = $(event.target).attr("data-attr");
+// 			var model = this.collection.get(id);
+// 			var form = "#add_a_wish_form" + id;
+// 			$(form).ajaxSubmit({
+// 
+// 			  success: function(response, status){
+// 				  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
+// 				  $(".fave-icon" + fave_icon).toggleClass('hidden');
+// 				  $(".index-item" + fave_icon).toggleClass('item-unwanted');
+// 				  model.set("wish", true);
+// 			  }
+	  	  });
+			
+			
+			
+		};
+		
+		
+	})
+	
+	
+});
+
+</script>
+
