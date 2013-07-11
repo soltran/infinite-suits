@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
               include: { profile_pic: {
                 methods: :image_url }
               }
-            },
+            }, category: { }
       },
       methods: [:primary_photo, :wish, :cart]
       

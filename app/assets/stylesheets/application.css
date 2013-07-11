@@ -15,10 +15,13 @@
  *= require jquery.fileupload-ui
  *= require_tree .
  */
-* {
-	
-	box-sizing: border-box
+
+
+/*TODO: move this*/
+.notice:empty, .alert:empty{
+	display: none;
 }
+
 .category {
 	
 	display: inline-block;
@@ -69,10 +72,6 @@
 }
 .navBar {background: #9F81F7; }
 
-.hidden { 
-	visibility: hidden;
-	display: none;
-}
 
 .primary-photo {
 	width: 40%;
@@ -247,5 +246,26 @@
 
 .gold-plans {
 	width: 70%;
+	
+}
+
+.hidden { 
+	visibility: hidden;
+	display: none !important;
+}
+
+.search-li {
+	padding-left: 10px;
+	padding-right: 10px;
+	
+}
+
+.searchbar {
+	box-sizing: border-box
+	
+}
+
+.topspacing {
+	margin-top: 30px;
 	
 }
