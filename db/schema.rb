@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710235656) do
+ActiveRecord::Schema.define(:version => 20130711035943) do
 
   create_table "carts", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20130710235656) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.integer  "category_id"
+    t.boolean  "sold"
+    t.integer  "transaction_id"
   end
 
   add_index "items", ["category_id"], :name => "index_items_on_category_id"
@@ -56,6 +58,12 @@ ActiveRecord::Schema.define(:version => 20130710235656) do
     t.datetime "image_updated_at"
     t.string   "imageable_type"
     t.boolean  "primary_photo"
+  end
+
+  create_table "transactions", :force => true do |t|
+    t.integer  "buyer_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

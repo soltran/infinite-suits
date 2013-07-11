@@ -15,6 +15,8 @@ class Item < ActiveRecord::Base
   
   has_many :prospective_buyers, through: :carts, source: :user
   
+  belongs_to :transaction
+  
   accepts_nested_attributes_for :photos, allow_destroy: true
   
   validates_presence_of :brand, :size, :item_condition, :original_price, :current_price

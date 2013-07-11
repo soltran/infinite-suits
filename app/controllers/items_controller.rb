@@ -2,10 +2,12 @@ class ItemsController < ApplicationController
   before_filter :authenticate_user!
   
   def index
-    @items = Item.all
-    @items.each do |item|
+    all_items = Item.all
+    @items = []
+    all_items.each do |item|
       item.set_wish(current_user)
       item.set_cart(current_user)
+      @items << item if item.sold.nil?
     end
     @photo = Photo.new
     
