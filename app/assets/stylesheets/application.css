@@ -22,6 +22,14 @@
 	display: none;
 }
 
+.centered {
+	text-align: center;
+/*	display: inline-block;*/
+	float:none;
+	margin:0 auto;
+	
+}
+
 .category {
 	
 	display: inline-block;
@@ -35,7 +43,9 @@
 .outlined {
 	border:1px solid green;
 	border-color: #071522;
-	
+	box-shadow: 0 0 20px #071522;
+	-moz-box-shadow: 0 0 20px #071522;
+	-webkit-box-shadow: 0 0 20px #071522;
 }
 
 .index-item {
@@ -44,6 +54,9 @@
 	width: 20%;
 	height: 20%;
 	margin: 10px;
+	box-sizing: border-box;
+	margin-left: 20px;
+	margin-right: 20px;
 	box-sizing: border-box;
 	
 }
@@ -88,15 +101,6 @@
 	width: 25px;
 	height: 25px;
 }
-
-.centered {
-	text-align: center;
-/*	display: inline-block;*/
-	float:none;
-	margin:0 auto;
-	
-}
-
 
 .box-size {
 	text-align: center;
