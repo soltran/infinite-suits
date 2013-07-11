@@ -1,0 +1,79 @@
+<h1 class="centered"> Congratulations on your Purchase! </h1>
+<br>
+<div class='checkout-table centered'> <!-- Checkout table begins -->
+		<% subtotal = 0 %>
+		<% delivery_total = 0 %>
+	
+		<table class='checkout-table table'>
+			<thead>
+				<th></th>
+				<th>Item name</th>
+				<th>Properties</th>
+				<th>Seller</th>
+				<th>Delivery type</th>
+				<th class="currency">Selling price</th>
+				<th></th>
+			</thead>
+			<tbody>
+			
+				<% @transaction.items.each do |item| %>
+				
+				<input type="hidden" name="transaction[item_ids][]" value="<%= item.id %>"> <!-- Add each cart item to transaction -->
+					<tr>
+						<td>
+							<div class style="width: 100px;">
+								<img src='<%= item.primary_photo.image_url %>' alt="photo-image" width="100" height="100">
+							</div>
+						</td>
+						<td> <%= item.brand %></td>
+						<td>Size: <%= item.size %>/<%= item.item_condition %></td>
+						<td> <%= item.seller.name %> </td>
+						<td> <%= item.delivery_type %> </td>
+						<td>
+							<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' 							  width='30' height='30'> 
+							 <%=item.current_price %> </td>
+						<td> </td>
+					</tr>
+					
+					<% subtotal += item.current_price %>
+					<% delivery_total += 3 if item.delivery_type == "shipping" %>
+
+				<% end %>
+			
+				<tr class="total-break">
+					<td></td>
+					<td colspan="4"> <b>Sub-total</b></td>
+					<td class="currency">
+						<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'> 
+						<strong class="price-gold"><%= subtotal %></strong>
+					</td>
+				
+			
+				</tr>
+				<tr class="shipping-break">
+					<td></td>
+					<td colspan="4"> <b>Shipping</b></td>
+					<td class="currency">
+						<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'> 
+						<strong class="price-shipping"><%= delivery_total %></strong>
+					</td>
+				</tr>
+				
+				<% total = subtotal + delivery_total %>
+				
+				<tr class="shipping-break">
+					<td></td>
+					<td colspan="4"> <b>Total</b></td>
+					<td class="currency">
+						<img src='https://s3-us-west-1.amazonaws.com/infiniteprod/gold-ball.png' width='30' height='30'> 
+						<strong class="price-total"><%= total %> </strong>
+					</td>
+				
+			
+				</tr>
+			
+			
+			</tbody>
+
+		</table>
+		<br>

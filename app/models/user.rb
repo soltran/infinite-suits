@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
   
   has_many :wishes, class_name: "Wish"
   
+  has_many :wish_items, through: :wishes, source: :item
+  
   has_many :carts, class_name: "Cart"
   
   has_many :cart_items, through: :carts, source: :item

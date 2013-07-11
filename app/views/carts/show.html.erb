@@ -4,10 +4,12 @@
 
 	<div class='centered'> You have no items in your cart</div>
 
-
 <% else %>
 
-	<div class='checkout-table centered'>
+<form id='js-new-transaction' method="post" action="/transactions"> <!-- Start of transaction create form -->
+<input name="authenticity_token" type="hidden" value="form_authenticity_token">
+
+	<div class='checkout-table centered'> <!-- Checkout table begins -->
 		<% subtotal = 0 %>
 		<% delivery_total = 0 %>
 	
@@ -24,6 +26,8 @@
 			<tbody>
 			
 				<% @cart_items.each do |item| %>
+				
+				<input type="hidden" name="transaction[item_ids][]" value="<%= item.id %>"> <!-- Add each cart item to transaction -->
 					<tr>
 						<td>
 							<div class style="width: 100px;">
@@ -95,37 +99,53 @@
 
 <% end %>
 
-
-	<input name="authenticity_token" type="hidden" value="form_authenticity_token">
-	<input type='hidden' name="cart_items" value='<%= @cart_items %>'>
-	<input type='hidden' name="transaction[buyer_id]" value="<%= current_user.id %>">
 </form>
+
+<div id="modal-purchase-confirm" class="modal hide fade">
+    <!-- dialog contents -->
+    <div class="modal-body centered">
+		<h1 class='centered'>Woot! You are almost there!</h1>
+		<br>
+		<div class="centered">
+			"Your total is <%= total %> gold. You will have <%= gold_left %> gold left."
+			
+		</div>
+	</div>
+    <!-- dialog buttons -->
+    <div class="modal-footer">
+		<a href="#" class="m-btn red btn">cancel</a>
+		<a href="#" class="m-btn green btn">Confirm Purchase</a>
+	</div>
+	
+</div>
 
 <script>
 
 $(".js-checkout").click(function(){
-	bootbox.confirm("Your total is <%= total %> gold. You will have <%= gold_left %> gold left.", function(result) {
-		if(result == true){
-			// console.log('true');
-// 			var id = $(event.target).attr("data-attr");
-// 			var model = this.collection.get(id);
-// 			var form = "#add_a_wish_form" + id;
-// 			$(form).ajaxSubmit({
-// 
-// 			  success: function(response, status){
-// 				  fave_icon = '[data-attr=' + '"' + id + '"' + "]";
-// 				  $(".fave-icon" + fave_icon).toggleClass('hidden');
-// 				  $(".index-item" + fave_icon).toggleClass('item-unwanted');
-// 				  model.set("wish", true);
-// 			  }
-	  	  // });
-			
-			
-			
-		};
-		
-		
-	})
+	$("#modal-purchase-confirm").on("show", function() {   
+	        $("#modal-purchase-confirm a.btn").on("click", function(e) {
+    	            $("#modal-purchase-confirm").modal('hide');     
+    	        });
+    			
+			$("#modal-purchase-confirm a.green").on("click", function(e){
+				var form = "#js-new-transaction";
+				$(form).ajaxSubmit({
+				  success: function(response, status){
+					  console.log(response.id);
+					  window.location.href = ("transactions/" + response.id);
+				  }
+			  	});
+				
+			});
+	});
+ 
+    
+	$("#modal-purchase-confirm").modal({                   
+	  "backdrop"  : "static",
+	  "keyboard"  : true,
+	  "show"      : true               
+	});
+
 	
 	
 });
