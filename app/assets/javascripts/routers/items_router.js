@@ -14,8 +14,11 @@ InfiniteShirts.Routers.Items = Backbone.Router.extend({
 	
 	index: function(){
 		var that = this;
+		cats = this.collection;
+		console.log(cats);
 		var view = new InfiniteShirts.Views.ItemsIndex({
 			collection: that.collection
+			
 			
 		});
 		

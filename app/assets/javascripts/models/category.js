@@ -7,7 +7,6 @@ InfiniteShirts.Models.Category = Backbone.RelationalModel.extend({
 		reverseRelation: {
 			key: 'category',
 			type: Backbone.hasOne,
-			collectionType: 'InfiniteShirts.Collections.Categories',
 		}
 	}],
 	

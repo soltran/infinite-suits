@@ -1,18 +1,24 @@
-<div class="searchbar">
-	<div class='searchbar-inner centered'>
-		<div class='container'>
-			<ul>
-				<img class='search-icon'src='https://s3-us-west-1.amazonaws.com/infiniteprod/search+icon.png'>
-			</ul>
-			<ul class='nav'>
-				<li class='search-li js-want-li'>
-					<a class='want-list js-show-want' href='#'>Your Want List</a>
-				</li>
-				<li class='search-li js-want-li hidden'>
-					<a class='want-list js-unshow-want' href='#'>Go back to All</a>
-				</li>
-					
-			</ul>
+<div class="searchbar tabbable">
+	<ul class='nav nav-tabs'>
+		<li>
+			<img class='search-icon'src='https://s3-us-west-1.amazonaws.com/infiniteprod/search+icon.png'>
+		</li>
+		<li class='search-li'>
+		</li>
+		<li class='search-li js-want-li'>
+			<a class='want-list js-show-want' href='#'>Your Want List</a>
+		</li>
+		<li class='search-li js-want-li hidden'>
+			<a class='want-list js-unshow-want' href='#'>Go back to All</a>
+		</li>
+
+	</ul>
+	
+	<div class="tab-content">
+		<div id="category" class="tab-pane">
+		<h1> This is all the categories </h1>
+		
+		
 		</div>
 	</div>
 </div>
@@ -37,11 +43,12 @@
 					<img class='image-top-right js-cart-image' data-attr='<%= item.id %>' src='https://s3-us-west-1.amazonaws.com/infiniteprod/cart.png'>
 				<% } %>
 				
-				<a class="item-link" data-id="<%= item.id %>" href='#'>
+				<a class="item-link centered" data-id="<%= item.id %>" href='#'>
 					<img src='<%= item.get("primary_photo").escape('image_url') %>' alt="photo-image" width="200" height="200">
 					<br>
 					Original: $<%= item.escape('original_price') %><%= item.escape('item_condition') %><br>
 					<%= item.escape('brand') %>
+					<% console.log(item.get('category').collection) %>
 				</a>
 				
 				<div class='footer'>
