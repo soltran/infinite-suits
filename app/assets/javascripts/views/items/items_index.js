@@ -12,7 +12,8 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
 	  "click .js-item-unfave": "unfavorite",
 	  "click .js-show-want": "want",
 	  "click .js-unshow-want": "unwant",
-	  // "click .js-categories-tab": "displayCategories"
+	  "click .js-category-filter": "categoryFilter",
+	  "click .js-category-filter.outlined": "removeFilter"
 	
   },
   
@@ -85,8 +86,21 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
 	$(".js-index-title").toggleClass('hidden');
   },
   
-  displayCategories: function(event){
+  categoryFilter: function(event){
 	  event.preventDefault();
+	  $(".js-category-filter").removeClass('outlined');
+	  $(event.currentTarget).toggleClass('outlined');
+	  var name = $(event.currentTarget).attr('id');
+	  cat_filter = '[cat-attr=' + '"' + name + '"' + "]";
+	  $(".index-item").addClass('hidden');
+	  $(".index-item" + cat_filter).toggleClass('hidden');
+	  $( "#searchbar" ).tabs( "option", "active", false );
+  },
+  
+  removeFilter: function(event){
+	  event.preventDefault();
+	  $(".js-category-filter").removeClass('outlined');
+	  $(".index-item").removeClass('hidden');
 	
   }
   

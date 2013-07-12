@@ -16,7 +16,7 @@
 	
 	<div id="category">
 		<% categories.each(function(category){ %>
-			<li class='category centered' cat-id="<%= category.id %>" id="<%= category.escape('name') %>">
+			<li class='category centered js-category-filter' cat-id="<%= category.id %>" id="<%= category.escape('name') %>">
 				<img src="<%= category.escape('image_url') %>" style="position: relative top: 50%; height: auto; width: 100px;">
 				<br><%= category.escape("name") %>
 			</li>
@@ -37,7 +37,7 @@
 		<% cart_class = item.escape("cart") ? "outlined" : "" %>
 		<% wish_class = item.escape("wish") ? "item-wanted" : "item-unwanted" %>
 		
-			<div class='index-item centered <%= wish_class %> <%= cart_class %>' data-attr='<%= item.id %>'>
+			<div class='index-item centered <%= wish_class %> <%= cart_class %>' cat-attr='<%= item.get("category").escape("name") %>' data-attr='<%= item.id %>'>
 			
 				<% if(item.escape("cart") == false){ %>
 					<img class='image-top-right js-cart-image hidden' data-attr='<%= item.id %>' src='https://s3-us-west-1.amazonaws.com/infiniteprod/cart.png'>
