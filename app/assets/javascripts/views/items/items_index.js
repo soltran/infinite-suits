@@ -2,6 +2,10 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
 
   template: JST['items/index'],
   
+  initialize: function(o){
+	  this.categories = o.categories
+  },
+  
   events: {
 	  "click .item-link": "show",
 	  "click .js-item-fave": "favorite",
@@ -13,12 +17,13 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
   },
   
   render: function(){
-	  var renderedTemplate = this.template({
-		  items: this.collection
-		
-	  })
-	  this.$el.html(renderedTemplate);
-	  return this;
+		var that = this;
+		var renderedTemplate = that.template({
+			items: that.collection,
+			categories: that.categories
+		})
+		that.$el.html(renderedTemplate);
+		return that;
 	  
   },
   

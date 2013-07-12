@@ -15,14 +15,18 @@
 	</ul>
 	
 	<div id="category">
-	Hi
-		
+		<% categories.each(function(category){ %>
+			<li class='category centered' cat-id="<%= category.id %>" id="<%= category.escape('name') %>">
+				<img src="<%= category.escape('image_url') %>" style="position: relative top: 50%; height: auto; width: 100px;">
+				<br><%= category.escape("name") %>
+			</li>
+		<% }); %>
 		
 	</div>
 </div>
 
 
-
+<div class='topspacing'><div>
 <h1 class='js-index-title centered'>You are a man. Get some real clothes</h1>
 <h1 class='js-index-title centered hidden'>Your Manly Want List</h1>
 <br>

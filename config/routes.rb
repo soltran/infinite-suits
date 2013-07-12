@@ -9,6 +9,7 @@ InfiniteShirts::Application.routes.draw do
   resource :favorite, :only => [:create, :destroy]
   resource :cart, :only => [:create, :destroy, :show]
   resources :transactions, :only => [:create, :show, :index]
+  resources :categories, :only => [:index]
 
   root :to => "home#index"
   
