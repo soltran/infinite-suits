@@ -7,7 +7,8 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
 	  "click .js-item-fave": "favorite",
 	  "click .js-item-unfave": "unfavorite",
 	  "click .js-show-want": "want",
-	  "click .js-unshow-want": "unwant"
+	  "click .js-unshow-want": "unwant",
+	  // "click .js-categories-tab": "displayCategories"
 	
   },
   
@@ -77,6 +78,11 @@ InfiniteShirts.Views.ItemsIndex = Backbone.View.extend({
 	$(".item-unwanted").removeClass('hidden');
 	$(".js-want-li").toggleClass('hidden');
 	$(".js-index-title").toggleClass('hidden');
+  },
+  
+  displayCategories: function(event){
+	  event.preventDefault();
+	
   }
   
 

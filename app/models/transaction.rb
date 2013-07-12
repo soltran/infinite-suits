@@ -30,6 +30,8 @@ class Transaction < ActiveRecord::Base
   def price_and_shipping_cost(item)
     cost = item.current_price
     cost += 3 if item.delivery_type == "shipping"
+    
+    cost
   end
   
 end

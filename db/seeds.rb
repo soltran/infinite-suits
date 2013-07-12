@@ -15,9 +15,10 @@ dress = Category.create([
   { name: 'Shoes', image_url: "https://s3-us-west-1.amazonaws.com/infiniteprod/shoe-pic.png"},
   { name: 'Jeans', image_url: "https://s3-us-west-1.amazonaws.com/infiniteprod/jeans-pic.png"},
   { name: 'fedoras', image_url: "https://s3-us-west-1.amazonaws.com/infiniteprod/fedora-pic.png"},
-  { name: 'Girlfriends', image_url: "https://s3-us-west-1.amazonaws.com/infiniteprod/girlfriend-pic.png"},
+  { name: 'Girlfriend Stuff', image_url: "https://s3-us-west-1.amazonaws.com/infiniteprod/girlfriend-pic.png"},
   ])
   
+
   # { name: 'Jumpsuits', image_url: "http://99dresses.com/static/6bum7XY4zig5mCGruIqq2TQrZApsn8h62ecQ2juijWl.png"},
   # { name: 'Shoes', image_url: "http://99dresses.com/static/6bum7XY4zig5mCGruIqq2TQrZApsn8h62ecQ2juijWl.png"},
   # { name: 'Bags', image_url: "http://99dresses.com/static/6bum7XY4zig5mCGruIqq2TQrZApsn8h62ecQ2juijWl.png"}

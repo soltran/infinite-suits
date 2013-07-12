@@ -20,6 +20,7 @@
 //= require backbone-relational
 //= require backbone-modal-dialog
 //= require jquery.ui.button
+//= require jquery.ui.tabs
 // require jquery-fileupload/basic
 
 //= require infinite_shirts

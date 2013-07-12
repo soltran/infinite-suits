@@ -12,6 +12,8 @@
  *= require bootstrap.min
  *= require bootstrap_and_overrides
  *= require jquery.ui.button
+ *= require jquery.ui.tabs
+ *= require jquery-ui-1.10.3.custom.min
  *= require jquery.fileupload-ui
  *= require_tree .
  */

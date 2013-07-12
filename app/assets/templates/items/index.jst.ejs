@@ -1,27 +1,26 @@
-<div class="searchbar tabbable">
-	<ul class='nav nav-tabs'>
+<div id="searchbar">
+	<ul>
 		<li>
 			<img class='search-icon'src='https://s3-us-west-1.amazonaws.com/infiniteprod/search+icon.png'>
 		</li>
 		<li class='search-li'>
+			<a class='js-categories-tab' href='#category'>Categories</a>
 		</li>
 		<li class='search-li js-want-li'>
-			<a class='want-list js-show-want' href='#'>Your Want List</a>
+			<a class='want-list js-show-want'>Your Want List</a>
 		</li>
 		<li class='search-li js-want-li hidden'>
-			<a class='want-list js-unshow-want' href='#'>Go back to All</a>
+			<a class='want-list js-unshow-want'>Go back to All</a>
 		</li>
-
 	</ul>
 	
-	<div class="tab-content">
-		<div id="category" class="tab-pane">
-		<h1> This is all the categories </h1>
+	<div id="category">
+	Hi
 		
 		
-		</div>
 	</div>
 </div>
+
 
 
 <h1 class='js-index-title centered'>You are a man. Get some real clothes</h1>
@@ -96,3 +95,9 @@
 
 	<% }); %>
 </ul>
+
+<script>
+	$("#searchbar").tabs({
+	  collapsible: true, active: false
+	});
+</script>
