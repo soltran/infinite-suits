@@ -29,7 +29,7 @@ class User < ActiveRecord::Base
   
   
   def init
-    self.gold ||= 0
+    self.gold ||= 200
     
   end
 
