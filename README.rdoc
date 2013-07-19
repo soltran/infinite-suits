@@ -1,1 +1,1 @@
-InfiniteSuits is a project I built in two weeks using Backbone.js & Rails. It is an e-commerce website where you can list items of clothing for sale or purchase items of clothing. 
+Clone of 99dresses.com. Implemented primarily in Backbone.js and served by a RESTful Rails API. Uses JQuery and JQuery UI to provide a more interactive user experience. Authentication is done with Devise. Features include image uploading to AWS, virtual currency, filtering.  
