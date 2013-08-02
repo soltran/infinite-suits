@@ -1,1 +1,2 @@
-Clone of 99dresses.com. Implemented primarily in Backbone.js and served by a RESTful Rails API. Uses JQuery and JQuery UI to provide a more interactive user experience. Also uses Backbone Relational to handle associations on the client-side. Authentication is done with Devise. Features include image uploading to AWS, the use of modals, virtual currency, filtering.  
+
+Purpose: Wanted to learn Backbone and Backbone Relational so I used this project as a way to do so. It is a peer to peer e-commerce website built using a Ruby on Rails backend. A user can list items that they own on the site and other users can buy them using virtual currency called gold. In the process I also got better at JQuery and JQueryUI. 
