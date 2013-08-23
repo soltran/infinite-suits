@@ -2,4 +2,5 @@
 
 <b>What is it?:</b> It is a peer to peer e-commerce website built using a Ruby on Rails backend. It is kind of like a 99dresses.com for men. A user can list items that they own on the site and other users can buy them using virtual currency called gold. In the process I also got better at JQuery and JQueryUI.
 
+Check out my gist on the backbone part of Infinite Suits here: https://gist.github.com/soltran/6322410
 
